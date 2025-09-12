@@ -1,6 +1,7 @@
 +++
 title = 'Contacts'
 date = 2025-09-10T20:22:00Z
+description = 'Get in touch with Mirko Caserta through various channels including email, GitHub, Telegram, YouTube, Instagram, Spotify, and BandCamp.'
 +++
 
 - [Email](mailto:mirko.caserta@gmail.com)

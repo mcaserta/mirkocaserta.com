@@ -5,7 +5,7 @@
     {%- set blog_section = get_section(path="posts/_index.md") %}
     {%- if blog_section and blog_section.pages %}
     <section class="posts-section">
-        <h2 class="section-title">Recent Posts</h2>
+        <h2 class="section-title">Recent Blog Posts</h2>
         
         <div class="posts-grid">
             {%- for post in blog_section.pages | slice(end=6) %}

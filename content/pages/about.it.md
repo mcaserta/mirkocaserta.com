@@ -1,6 +1,7 @@
 +++
 date = 2025-09-10T20:20:00Z
 title = 'Chi Sono'
+description = 'Scopri di più su Mirko Caserta, uno Sviluppatore Senior a Roma, Italia, che lavora su backend aziendali ed è appassionato di tecnologia, musica e radio.'
 +++
 
 ![Una foto di Mirko](../../images/mirko.jpg)

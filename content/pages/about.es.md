@@ -1,6 +1,7 @@
 +++
 date = 2025-09-10T20:20:00Z
 title = 'Acerca de'
+description = 'Conoce más sobre Mirko Caserta, un Desarrollador Senior en Roma, Italia, que trabaja en backends empresariales y es apasionado de la tecnología, música y radio.'
 +++
 
 ![Una foto de Mirko](../../images/mirko.jpg)

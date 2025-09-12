@@ -23,7 +23,7 @@ name = "Home"
 url = "/"
 
 [[extra.menu.main]]  
-name = "Posts"
+name = "Blog"
 url = "/posts/"
 
 [[extra.menu.main]]

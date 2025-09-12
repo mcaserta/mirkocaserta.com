@@ -2,14 +2,14 @@
 
 # Navigation
 home = "Home"
-posts = "Posts"
+posts = "Blog"
 categories = "Categories"
 tags = "Tags"
 
 # Homepage
 welcome_title = "Welcome to my website"
 welcome_description = "Personal website and blog"
-recent_posts = "Recent Posts"
+recent_posts = "Recent Blog Posts"
 view_all_posts = "View all posts"
 no_posts_yet = "No posts published yet. Check back soon!"
 
@@ -30,8 +30,8 @@ older_posts = "Older posts →"
 # Taxonomy
 explore_by_category = "Explore posts by category"
 explore_by_tag = "Explore posts by tag"
-posts_in_category = "Posts in \"{name}\""
-posts_with_tag = "Posts tagged \"{name}\""
+posts_in_category = "Blog posts in \"{name}\""
+posts_with_tag = "Blog posts tagged \"{name}\""
 post_found = "{count} post found"
 posts_found = "{count} posts found"
 no_categories_found = "No categories found."

@@ -2,38 +2,50 @@
 
 {% block content %}
 <div class="container">
-    <div class="section-header">
+    <header class="section-header">
         <h1 class="section-title">{{ section.title }}</h1>
-        {% if section.description %}
+        {%- if section.description %}
         <p class="section-description">{{ section.description }}</p>
-        {% endif %}
-    </div>
-
+        {%- endif %}
+    </header>
+    
     <div class="section-content">
         {{ section.content | safe }}
     </div>
-
-    {% if section.pages %}
-    <div class="pages-section">
-        <h2>Available Pages</h2>
-        <div class="pages-list">
-            {% for page in section.pages %}
-            <div class="page-card">
-                <div class="page-content">
-                    <h3 class="page-title">
-                        <a href="{{ page.permalink }}">{{ page.title }}</a>
-                    </h3>
-                    {% if page.description %}
-                    <p class="page-summary">{{ page.description }}</p>
-                    {% endif %}
-                    <div class="page-meta">
-                        <span class="page-date">{{ page.date | date(format="%B %d, %Y") }}</span>
-                    </div>
+    
+    {%- if section.pages %}
+    <div class="posts-list">
+        {%- for page in section.pages %}
+        <article class="post-preview">
+            <div class="post-preview-content">
+                <h2 class="post-preview-title">
+                    <a href="{{ page.permalink }}">{{ page.title }}</a>
+                </h2>
+                
+                <div class="post-meta">
+                    <time datetime="{{ page.date }}">
+                        {%- if lang == "it" %}
+                            {{ page.date | date(format="%d %B %Y") }}
+                        {%- elif lang == "es" %}
+                            {{ page.date | date(format="%d de %B de %Y") }}
+                        {%- else %}
+                            {{ page.date | date(format="%B %d, %Y") }}
+                        {%- endif -%}
+                    </time>
                 </div>
+                
+                {%- if page.description %}
+                <p class="post-summary">{{ page.description }}</p>
+                {%- endif %}
             </div>
-            {% endfor %}
-        </div>
+        </article>
+        {%- endfor %}
     </div>
-    {% endif %}
+    
+    {%- else %}
+    <div class="empty-state">
+        <p class="empty-message">No pages found.</p>
+    </div>
+    {%- endif %}
 </div>
 {% endblock content %}

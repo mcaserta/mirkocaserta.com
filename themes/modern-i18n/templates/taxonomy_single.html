@@ -4,8 +4,8 @@
 <div class="container">
     <header class="section-header">
         <h1 class="section-title">
-            {%- if taxonomy.name == "categories" %}Posts in "{{ term.name }}"
-            {%- elif taxonomy.name == "tags" %}Posts tagged "{{ term.name }}"
+            {%- if taxonomy.name == "categories" %}Blog posts in "{{ term.name }}"
+            {%- elif taxonomy.name == "tags" %}Blog posts tagged "{{ term.name }}"
             {%- else %}{{ term.name | title }}
             {%- endif -%}
         </h1>

@@ -1,6 +1,7 @@
 +++
 date = 2025-09-10T20:20:00Z
 title = 'About'
+description = 'Learn more about Mirko Caserta, a Senior Developer in Rome, Italy, who works on enterprise backends and is passionate about technology, music, and amateur radio.'
 +++
 
 ![A picture of Mirko](../../images/mirko.jpg)
