@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <article class="page">
+        <header class="page-header">
+            <h1 class="page-title">{{ page.title }}</h1>
+            
+            {%- if page.description %}
+            <p class="page-description">{{ page.description }}</p>
+            {%- endif %}
+            
+            {%- if page.date %}
+            <div class="page-meta">
+                <time datetime="{{ page.date }}">
+                    {%- if lang == "it" %}
+                        {{ page.date | date(format="%d %B %Y") }}
+                    {%- elif lang == "es" %}
+                        {{ page.date | date(format="%d de %B de %Y") }}
+                    {%- else %}
+                        {{ page.date | date(format="%B %d, %Y") }}
+                    {%- endif -%}
+                </time>
+                
+                {%- if page.updated %}
+                <span class="page-updated"> • Updated {{ page.updated | date(format="%B %d, %Y") }}</span>
+                {%- endif %}
+            </div>
+            {%- endif %}
+        </header>
+        
+        <div class="page-content">
+            {{ page.content | safe }}
+        </div>
+        
+        {%- if page.taxonomies.tags %}
+        <footer class="page-footer">
+            <div class="page-tags">
+                <span class="tags-label">Tags:</span>
+                {%- for tag in page.taxonomies.tags %}
+                <a href="/tags/{{ tag | slugify }}/" class="tag-link">
+                    #{{ tag }}
+                </a>
+                {%- endfor %}
+            </div>
+        </footer>
+        {%- endif %}
+    </article>
+</div>
+{% endblock content %}

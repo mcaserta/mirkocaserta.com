@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <header class="section-header">
+        <h1 class="section-title">{{ taxonomy.name | title }}</h1>
+        
+        <p class="section-description">
+            {%- if taxonomy.name == "categories" %}Explore posts by category
+            {%- elif taxonomy.name == "tags" %}Explore posts by tag
+            {%- endif -%}
+        </p>
+    </header>
+    
+    {%- if terms %}
+    <div class="taxonomy-cloud">
+        {%- for term in terms %}
+        <a href="{{ term.permalink }}" class="taxonomy-item">
+            <span class="taxonomy-name">{{ term.name }}</span>
+            <span class="taxonomy-count">({{ term.pages | length }})</span>
+        </a>
+        {%- endfor %}
+    </div>
+    {%- else %}
+    <div class="empty-state">
+        <p class="empty-message">
+            {%- if taxonomy.name == "categories" %}No categories found.
+            {%- elif taxonomy.name == "tags" %}No tags found.
+            {%- endif -%}
+        </p>
+    </div>
+    {%- endif %}
+</div>
+{% endblock content %}

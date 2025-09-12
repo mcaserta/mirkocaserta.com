@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    {%- set blog_section = get_section(path="posts/_index.md") %}
+    {%- if blog_section and blog_section.pages %}
+    <section class="posts-section">
+        <h2 class="section-title">Recent Posts</h2>
+        
+        <div class="posts-grid">
+            {%- for post in blog_section.pages | slice(end=6) %}
+            <article class="post-card">
+                {%- if post.extra.featured_image %}
+                <div class="post-image">
+                    <img src="{{ get_url(path=post.extra.featured_image) }}" alt="{{ post.title }}" loading="lazy">
+                </div>
+                {%- endif %}
+                
+                <div class="post-content">
+                    <h3 class="post-title">
+                        <a href="{{ post.permalink }}">{{ post.title }}</a>
+                    </h3>
+                    
+                    <div class="post-meta">
+                        <time datetime="{{ post.date }}">
+                            {{ post.date | date(format="%B %d, %Y") }}
+                        </time>
+                        
+                        {%- if post.taxonomies.categories %}
+                        <div class="post-categories">
+                            {%- for category in post.taxonomies.categories %}
+                            <a href="/categories/{{ category | slugify }}/" class="category-link">
+                                {{ category }}
+                            </a>
+                            {%- endfor %}
+                        </div>
+                        {%- endif %}
+                    </div>
+                    
+                    {%- if post.summary %}
+                    <p class="post-summary">{{ post.summary }}</p>
+                    {%- elif post.description %}
+                    <p class="post-summary">{{ post.description }}</p>
+                    {%- endif %}
+                    
+                    {%- if post.taxonomies.tags %}
+                    <div class="post-tags">
+                        {%- for tag in post.taxonomies.tags | slice(end=3) %}
+                        <a href="/tags/{{ tag | slugify }}/" class="tag-link">
+                            #{{ tag }}
+                        </a>
+                        {%- endfor %}
+                    </div>
+                    {%- endif %}
+                </div>
+            </article>
+            {%- endfor %}
+        </div>
+        
+        <div class="posts-more">
+            <a href="{{ get_url(path="/posts/") }}" class="button button-primary">View all posts</a>
+        </div>
+    </section>
+    {%- else %}
+    <section class="empty-state">
+        <p class="empty-message">No posts published yet. Check back soon!</p>
+    </section>
+    {%- endif %}
+</div>
+{% endblock content %}

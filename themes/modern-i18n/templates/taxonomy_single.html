@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <header class="section-header">
+        <h1 class="section-title">
+            {%- if taxonomy.name == "categories" %}Posts in "{{ term.name }}"
+            {%- elif taxonomy.name == "tags" %}Posts tagged "{{ term.name }}"
+            {%- else %}{{ term.name | title }}
+            {%- endif -%}
+        </h1>
+        
+        <p class="section-description">
+            {{ term.pages | length }}
+            {%- if term.pages | length == 1 %} post found
+            {%- else %} posts found
+            {%- endif -%}
+        </p>
+    </header>
+    
+    {%- if term.pages %}
+    <div class="posts-list">
+        {%- for post in term.pages %}
+        <article class="post-preview">
+            <div class="post-preview-content">
+                <h2 class="post-preview-title">
+                    <a href="{{ post.permalink }}">{{ post.title }}</a>
+                </h2>
+                
+                <div class="post-meta">
+                    <time datetime="{{ post.date }}">
+                        {%- if lang == "it" %}
+                            {{ post.date | date(format="%d %B %Y") }}
+                        {%- elif lang == "es" %}
+                            {{ post.date | date(format="%d de %B de %Y") }}
+                        {%- else %}
+                            {{ post.date | date(format="%B %d, %Y") }}
+                        {%- endif -%}
+                    </time>
+                    
+                    {%- if taxonomy.name == "tags" and post.taxonomies.categories %}
+                    <div class="post-categories">
+                        {%- for category in post.taxonomies.categories %}
+                        <a href="/categories/{{ category | slugify }}/" class="category-link">
+                            {{ category }}
+                        </a>
+                        {%- endfor %}
+                    </div>
+                    {%- endif %}
+                    
+                    {%- if post.reading_time %}
+                    <span class="reading-time"> • {{ post.reading_time }} min read</span>
+                    {%- endif %}
+                </div>
+                
+                {%- if post.summary %}
+                <p class="post-summary">{{ post.summary }}</p>
+                {%- elif post.description %}
+                <p class="post-summary">{{ post.description }}</p>
+                {%- endif %}
+                
+                {%- if taxonomy.name == "categories" and post.taxonomies.tags %}
+                <div class="post-tags">
+                    {%- for tag in post.taxonomies.tags | slice(end=5) %}
+                    <a href="/tags/{{ tag | slugify }}/" class="tag-link">
+                        #{{ tag }}
+                    </a>
+                    {%- endfor %}
+                </div>
+                {%- endif %}
+            </div>
+        </article>
+        {%- endfor %}
+    </div>
+    
+    {%- if paginator %}
+    <nav class="pagination">
+        {%- if paginator.previous %}
+        <a href="{{ paginator.previous }}" class="pagination-link pagination-prev">← Newer posts</a>
+        {%- endif %}
+        
+        <span class="pagination-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+        
+        {%- if paginator.next %}
+        <a href="{{ paginator.next }}" class="pagination-link pagination-next">Older posts →</a>
+        {%- endif %}
+    </nav>
+    {%- endif %}
+    
+    {%- else %}
+    <div class="empty-state">
+        <p class="empty-message">No posts found.</p>
+    </div>
+    {%- endif %}
+    
+    <div class="section-nav">
+        <a href="/{{ taxonomy.name }}/" class="button button-secondary">
+            {%- if taxonomy.name == "categories" %}← All categories
+            {%- elif taxonomy.name == "tags" %}← All tags
+            {%- endif -%}
+        </a>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,44 @@
+# Italian translations
+
+# Navigation
+home = "Home"
+posts = "Articoli"
+categories = "Categorie"
+tags = "Tag"
+
+# Homepage
+welcome_title = "Benvenuto nel mio sito web"
+welcome_description = "Sito web personale e blog"
+recent_posts = "Articoli recenti"
+view_all_posts = "Vedi tutti gli articoli"
+no_posts_yet = "Nessun articolo ancora pubblicato. Torna presto!"
+
+# Post metadata
+min_read = "min di lettura"
+updated = "Aggiornato il"
+reading_time = "min di lettura"
+
+# Post navigation
+previous_post = "Articolo precedente"
+next_post = "Prossimo articolo"
+
+# Pagination
+page_of = "Pagina {current} di {total}"
+newer_posts = "← Articoli più recenti"
+older_posts = "Articoli più vecchi →"
+
+# Taxonomy
+explore_by_category = "Esplora gli articoli per categoria"
+explore_by_tag = "Esplora gli articoli per tag"
+posts_in_category = "Articoli in \"{name}\""
+posts_with_tag = "Articoli con tag \"{name}\""
+post_found = "{count} articolo trovato"
+posts_found = "{count} articoli trovati"
+no_categories_found = "Nessuna categoria trovata."
+no_tags_found = "Nessun tag trovato."
+no_posts_found = "Nessun articolo trovato."
+all_categories = "← Tutte le categorie"
+all_tags = "← Tutti i tag"
+
+# Footer
+all_rights_reserved = "Tutti i diritti riservati."

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default(value="en") }}" data-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        {%- if page.title %}{{ page.title }} | {{ config.title }}
+        {%- elif section.title %}{{ section.title }} | {{ config.title }}
+        {%- else %}{{ config.title }}
+        {%- endif -%}
+    </title>
+    
+    {%- if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {%- elif section.description %}
+    <meta name="description" content="{{ section.description }}">
+    {%- elif config.description %}
+    <meta name="description" content="{{ config.description }}">
+    {%- endif %}
+    
+    {%- if config.extra.author %}
+    <meta name="author" content="{{ config.extra.author }}">
+    {%- endif %}
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+    
+    <!-- Theme detection and setting script (must be in head to prevent FOUC) -->
+    <script>
+        (function() {
+            let theme = localStorage.getItem('theme') || 'auto';
+            
+            // Convert 'auto' to actual theme based on system preference
+            if (theme === 'auto') {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                theme = prefersDark ? 'dark' : 'light';
+            }
+            
+            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        })();
+    </script>
+    
+    {%- if config.generate_feeds %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+    {%- endif %}
+    
+    {%- block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    <div class="layout">
+        <header class="header">
+            {% include "navbar.html" %}
+        </header>
+        
+        <main class="main">
+            {%- block content %}{% endblock content %}
+        </main>
+        
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author | default(value="") }}. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="{{ get_url(path="js/theme.js") }}"></script>
+    {%- block extra_scripts %}{% endblock extra_scripts %}
+</body>
+</html>

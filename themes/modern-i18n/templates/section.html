@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="section-header">
+        <h1 class="section-title">{{ section.title }}</h1>
+        {% if section.description %}
+        <p class="section-description">{{ section.description }}</p>
+        {% endif %}
+    </div>
+
+    <div class="section-content">
+        {{ section.content | safe }}
+    </div>
+
+    {% if section.pages %}
+    <div class="pages-section">
+        <h2>Available Pages</h2>
+        <div class="pages-list">
+            {% for page in section.pages %}
+            <div class="page-card">
+                <div class="page-content">
+                    <h3 class="page-title">
+                        <a href="{{ page.permalink }}">{{ page.title }}</a>
+                    </h3>
+                    {% if page.description %}
+                    <p class="page-summary">{{ page.description }}</p>
+                    {% endif %}
+                    <div class="page-meta">
+                        <span class="page-date">{{ page.date | date(format="%B %d, %Y") }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

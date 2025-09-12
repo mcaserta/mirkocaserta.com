@@ -1,16 +1,39 @@
-# The URL the site will be built for
 base_url = "https://mirkocaserta.com"
-
-# Whether to automatically compile all Sass files in the sass directory
+title = "Mirko Caserta"
+author = "Mirko Caserta"
+description = "Personal website and blog"
+default_language = "en"
 compile_sass = true
-
-# Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
+generate_feeds = true
+theme = "modern-i18n"
+
+taxonomies = [
+    {name = "tags", paginate_by = 10},
+    {name = "categories", paginate_by = 10},
+]
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "base16-ocean-dark"
 
-[extra]
-# Put all your custom variables here
+# Navigation menu items
+[[extra.menu.main]]
+name = "Home"
+url = "/"
+
+[[extra.menu.main]]  
+name = "Posts"
+url = "/posts/"
+
+[[extra.menu.main]]
+name = "Pages"
+url = "/pages/"
+
+[[extra.menu.main]]
+name = "Categories" 
+url = "/categories/"
+
+[[extra.menu.main]]
+name = "Tags"
+url = "/tags/"

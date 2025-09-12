@@ -1,0 +1,70 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="{{ get_url(path="/") }}" class="navbar-logo">
+                {%- if lang == "it" %}{{ config.title | default(value="Mirko Caserta") }}
+                {%- elif lang == "es" %}{{ config.title | default(value="Mirko Caserta") }}
+                {%- else %}{{ config.title | default(value="Mirko Caserta") }}
+                {%- endif -%}
+            </a>
+        </div>
+        
+        <div class="navbar-menu">
+            {%- if config.extra.menu.main %}
+            <ul class="navbar-nav">
+                {%- for item in config.extra.menu.main %}
+                <li class="nav-item">
+                    <a href="{{ get_url(path=item.url) }}" class="nav-link">
+{{ item.name }}
+                    </a>
+                </li>
+                {%- endfor %}
+            </ul>
+            {%- endif %}
+            
+            <!-- Theme and language controls -->
+            <div class="navbar-controls">
+                <!-- Theme toggle -->
+                <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                    <span class="theme-icon theme-icon-light">☀️</span>
+                    <span class="theme-icon theme-icon-dark">🌙</span>
+                </button>
+                
+                <!-- Language switcher (only show if multiple languages available) -->
+                {# For now, we'll use a simple approach: only show if we're not on the default language #}
+                {# This can be enhanced later when multilingual content is added #}
+                {%- set show_language_switcher = false -%}
+                
+                {# Check if we have multilingual content by looking for language-specific files #}
+                {# This is a simplified check - in a real multilingual site, you'd have proper content #}
+                {%- if lang and lang != "en" -%}
+                    {%- set show_language_switcher = true -%}
+                {%- endif -%}
+                
+                {# TODO: Implement proper multilingual content detection when content is available #}
+                {# For now, the language switcher will be hidden since we only have English content #}
+                
+                {%- if show_language_switcher -%}
+                <div class="language-switcher">
+                    <a href="{{ get_url(path="/", lang="en") }}" 
+                       class="language-link{% if lang == "en" or not lang %} active{% endif %}"
+                       title="English">EN</a>
+                    <a href="{{ get_url(path="/", lang="it") }}" 
+                       class="language-link{% if lang == "it" %} active{% endif %}"
+                       title="Italiano">IT</a>
+                    <a href="{{ get_url(path="/", lang="es") }}" 
+                       class="language-link{% if lang == "es" %} active{% endif %}"
+                       title="Español">ES</a>
+                </div>
+                {%- endif -%}
+            </div>
+            
+            <!-- Mobile menu toggle -->
+            <button class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="navbar-toggle-bar"></span>
+                <span class="navbar-toggle-bar"></span>
+                <span class="navbar-toggle-bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,29 @@
+name = "modern-i18n"
+description = "A modern, multilingual theme with dark/light mode support and clean typography"
+license = "MIT"
+homepage = "https://github.com/mirkocaserta/modern-i18n-theme"
+# repository = "https://github.com/mirkocaserta/modern-i18n-theme.git"
+minimum_zola_version = "0.16.0"
+
+[author]
+name = "Mirko Caserta"
+homepage = "https://mirkocaserta.com"
+
+[extra]
+# Theme features
+features = [
+    "dark-mode",
+    "light-mode", 
+    "multilingual",
+    "responsive",
+    "modern-fonts",
+    "syntax-highlighting"
+]
+
+# Supported languages
+languages = ["en", "it", "es"]
+
+# Font stacks
+[extra.fonts]
+body = "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif"
+code = "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace"

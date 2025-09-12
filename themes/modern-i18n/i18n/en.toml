@@ -1,0 +1,47 @@
+# English translations
+
+# Navigation
+home = "Home"
+posts = "Posts"
+categories = "Categories"
+tags = "Tags"
+
+# Homepage
+welcome_title = "Welcome to my website"
+welcome_description = "Personal website and blog"
+recent_posts = "Recent Posts"
+view_all_posts = "View all posts"
+no_posts_yet = "No posts published yet. Check back soon!"
+
+# Post metadata
+min_read = "min read"
+updated = "Updated"
+reading_time = "min read"
+
+# Post navigation
+previous_post = "Previous post"
+next_post = "Next post"
+
+# Pagination
+page_of = "Page {current} of {total}"
+newer_posts = "← Newer posts"
+older_posts = "Older posts →"
+
+# Taxonomy
+explore_by_category = "Explore posts by category"
+explore_by_tag = "Explore posts by tag"
+posts_in_category = "Posts in \"{name}\""
+posts_with_tag = "Posts tagged \"{name}\""
+post_found = "{count} post found"
+posts_found = "{count} posts found"
+no_categories_found = "No categories found."
+no_tags_found = "No tags found."
+no_posts_found = "No posts found."
+all_categories = "← All categories"
+all_tags = "← All tags"
+
+# Footer
+all_rights_reserved = "All rights reserved."
+
+# Dates (these will be handled by Zola's date filter with format strings)
+# We'll use these for any custom date formatting needs
