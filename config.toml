@@ -19,12 +19,8 @@ highlight_theme = "base16-ocean-dark"
 
 # Navigation menu items
 [[extra.menu.main]]
-name = "Home"
-url = "/"
-
-[[extra.menu.main]]  
 name = "Blog"
-url = "/posts/"
+url = "/"
 
 [[extra.menu.main]]
 name = "Pages"

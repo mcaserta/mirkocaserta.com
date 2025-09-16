@@ -2,50 +2,137 @@
 
 {% block content %}
 <div class="container">
+    {%- if section.content %}
     <header class="section-header">
         <h1 class="section-title">{{ section.title }}</h1>
-        {%- if section.description %}
-        <p class="section-description">{{ section.description }}</p>
-        {%- endif %}
+        <div class="section-description">{{ section.content | safe }}</div>
     </header>
-    
-    <div class="section-content">
-        {{ section.content | safe }}
-    </div>
-    
-    {%- if section.pages %}
-    <div class="posts-list">
-        {%- for page in section.pages %}
-        <article class="post-preview">
-            <div class="post-preview-content">
-                <h2 class="post-preview-title">
-                    <a href="{{ page.permalink }}">{{ page.title }}</a>
-                </h2>
-                
-                <div class="post-meta">
-                    <time datetime="{{ page.date }}">
-                        {%- if lang == "it" %}
-                            {{ page.date | date(format="%d %B %Y") }}
-                        {%- elif lang == "es" %}
-                            {{ page.date | date(format="%d de %B de %Y") }}
-                        {%- else %}
-                            {{ page.date | date(format="%B %d, %Y") }}
-                        {%- endif -%}
-                    </time>
-                </div>
-                
-                {%- if page.description %}
-                <p class="post-summary">{{ page.description }}</p>
-                {%- endif %}
+    {%- endif %}
+
+    {%- if paginator and paginator.pages %}
+        {# Use paginated pages for section pages #}
+        <section class="posts-section">
+            <div class="posts-grid">
+                {%- for post in paginator.pages %}
+                <article class="post-card">
+                    {%- if post.extra.featured_image %}
+                    <div class="post-image">
+                        <img src="{{ get_url(path=post.extra.featured_image) }}" alt="{{ post.title }}" loading="lazy">
+                    </div>
+                    {%- endif %}
+
+                    <div class="post-content">
+                        <h3 class="post-title">
+                            <a href="{{ post.permalink }}">{{ post.title }}</a>
+                        </h3>
+
+                        <div class="post-meta">
+                            <time datetime="{{ post.date }}">
+                                {{ post.date | date(format="%B %d, %Y") }}
+                            </time>
+
+                            {%- if post.taxonomies.categories %}
+                            <div class="post-categories">
+                                {%- for category in post.taxonomies.categories %}
+                                <a href="/categories/{{ category | slugify }}/" class="category-link">
+                                    {{ category }}
+                                </a>
+                                {%- endfor %}
+                            </div>
+                            {%- endif %}
+                        </div>
+
+                        {%- if post.summary %}
+                        <p class="post-summary">{{ post.summary }}</p>
+                        {%- elif post.description %}
+                        <p class="post-summary">{{ post.description }}</p>
+                        {%- endif %}
+
+                        {%- if post.taxonomies.tags %}
+                        <div class="post-tags">
+                            {%- for tag in post.taxonomies.tags | slice(end=3) %}
+                            <a href="/tags/{{ tag | slugify }}/" class="tag-link">
+                                #{{ tag }}
+                            </a>
+                            {%- endfor %}
+                        </div>
+                        {%- endif %}
+                    </div>
+                </article>
+                {%- endfor %}
             </div>
-        </article>
-        {%- endfor %}
-    </div>
-    
+
+            {%- if paginator %}
+            <nav class="pagination">
+                {%- if paginator.previous %}
+                <a href="{{ paginator.previous }}" class="pagination-link pagination-prev">← Newer posts</a>
+                {%- endif %}
+
+                <span class="pagination-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+
+                {%- if paginator.next %}
+                <a href="{{ paginator.next }}" class="pagination-link pagination-next">Older posts →</a>
+                {%- endif %}
+            </nav>
+            {%- endif %}
+        </section>
+    {%- elif section.pages %}
+        {# Fallback for non-paginated section pages #}
+        <section class="posts-section">
+            <div class="posts-grid">
+                {%- for post in section.pages %}
+                <article class="post-card">
+                    {%- if post.extra.featured_image %}
+                    <div class="post-image">
+                        <img src="{{ get_url(path=post.extra.featured_image) }}" alt="{{ post.title }}" loading="lazy">
+                    </div>
+                    {%- endif %}
+
+                    <div class="post-content">
+                        <h3 class="post-title">
+                            <a href="{{ post.permalink }}">{{ post.title }}</a>
+                        </h3>
+
+                        <div class="post-meta">
+                            <time datetime="{{ post.date }}">
+                                {{ post.date | date(format="%B %d, %Y") }}
+                            </time>
+
+                            {%- if post.taxonomies.categories %}
+                            <div class="post-categories">
+                                {%- for category in post.taxonomies.categories %}
+                                <a href="/categories/{{ category | slugify }}/" class="category-link">
+                                    {{ category }}
+                                </a>
+                                {%- endfor %}
+                            </div>
+                            {%- endif %}
+                        </div>
+
+                        {%- if post.summary %}
+                        <p class="post-summary">{{ post.summary }}</p>
+                        {%- elif post.description %}
+                        <p class="post-summary">{{ post.description }}</p>
+                        {%- endif %}
+
+                        {%- if post.taxonomies.tags %}
+                        <div class="post-tags">
+                            {%- for tag in post.taxonomies.tags | slice(end=3) %}
+                            <a href="/tags/{{ tag | slugify }}/" class="tag-link">
+                                #{{ tag }}
+                            </a>
+                            {%- endfor %}
+                        </div>
+                        {%- endif %}
+                    </div>
+                </article>
+                {%- endfor %}
+            </div>
+        </section>
     {%- else %}
-    <div class="empty-state">
-        <p class="empty-message">No pages found.</p>
-    </div>
+    <section class="empty-state">
+        <p class="empty-message">No posts found.</p>
+    </section>
     {%- endif %}
 </div>
 {% endblock content %}

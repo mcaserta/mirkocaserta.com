@@ -1,7 +1,8 @@
 +++
 title = "Blog"
-template = "blog.html"
+template = "section.html"
 sort_by = "date"
+paginate_by = 12
 +++
 
 Welcome to my blog! Here you'll find articles about technology, programming,
