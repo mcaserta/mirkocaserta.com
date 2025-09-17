@@ -2,14 +2,38 @@
 
 {% block content %}
 <div class="container">
-    <article class="page">
+    {%- if page.extra.toc %}
+    <aside class="toc-sidebar">
+        <div class="toc-sidebar-content">
+            <h2 class="toc-title">Table of Contents</h2>
+            <ul>
+            {% for h1 in page.toc %}
+                <li>
+                    <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+                    {% if h1.children %}
+                        <ul>
+                            {% for h2 in h1.children %}
+                                <li>
+                                    <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </aside>
+    {%- endif %}
+
+    <article class="page {%- if page.extra.toc %} page-with-toc{%- endif %}">
         <header class="page-header">
             <h1 class="page-title">{{ page.title }}</h1>
-            
+
             {%- if page.description %}
             <p class="page-description">{{ page.description }}</p>
             {%- endif %}
-            
+
             {%- if page.date %}
             <div class="page-meta">
                 <time datetime="{{ page.date }}">
@@ -21,18 +45,18 @@
                         {{ page.date | date(format="%B %d, %Y") }}
                     {%- endif -%}
                 </time>
-                
+
                 {%- if page.updated %}
                 <span class="page-updated"> • Updated {{ page.updated | date(format="%B %d, %Y") }}</span>
                 {%- endif %}
             </div>
             {%- endif %}
         </header>
-        
+
         <div class="page-content">
             {{ page.content | safe }}
         </div>
-        
+
         {%- if page.taxonomies.tags %}
         <footer class="page-footer">
             <div class="page-tags">

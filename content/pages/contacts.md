@@ -11,3 +11,4 @@ description = 'Get in touch with Mirko Caserta through various channels includin
 - [Instagram](https://www.instagram.com/mcaserta/)
 - [Spotify](https://open.spotify.com/artist/0jv0oWHiTvLG9PetrnX5PO)
 - [BandCamp](https://mirkocaserta.bandcamp.com)
+- [Mastodon](https://mastodon.online/@mcaserta)
