@@ -199,12 +199,13 @@ recomienda el estudio al menos elemental del piano: para desarrollar esa
 capacidad de conceptualización que sirve para suplir la aparente falta de
 concreción en el mundo de los sonidos.
 
-No es posible ver un sonido viajar en el aire, pero visualizar mentalmente la presión de un dedo sobre la tecla
-del piano es posible y también es posible imaginar el sonido producido usando
-nuestra voz interior, la misma que está leyendo estas palabras ahora mismo. Si
-podemos visualizar la presión de una segunda tecla e imaginar su sonido,
-acabamos de poner el primer ladrillo para construir el edificio mental sonoro,
-es decir, hemos conceptualizado un intervalo a nivel cognitivo.
+No es posible ver un sonido viajar en el aire, pero visualizar mentalmente la
+presión de un dedo sobre la tecla del piano es posible y también es posible
+imaginar el sonido producido usando nuestra voz interior, la misma que está
+leyendo estas palabras ahora mismo. Si podemos visualizar la presión de una
+segunda tecla e imaginar su sonido, acabamos de poner el primer ladrillo para
+construir el edificio mental sonoro, es decir, hemos conceptualizado un
+intervalo a nivel cognitivo.
 
 Hay pianistas clásicos que, después de entrenarse largo tiempo para un
 concierto, pueden sentarse, cerrar los ojos e imaginar toda la interpretación

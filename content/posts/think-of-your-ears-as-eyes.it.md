@@ -198,13 +198,13 @@ riprodurre un intervallo. Ecco perché viene consigliato lo studio almeno
 elementare del pianoforte: per sviluppare quella capacità di concettualizzazione
 che serve a supplire all'apparente mancanza di concretezza del mondo dei suoni.
 
-Non è possibile vedere un suono viaggiare attraverso l'aria, ma visualizzare mentalmente la pressione di un
-dito sul tasto del piano è possibile ed è anche possibile immaginarne il suono prodotto
-usando la nostra voce interiore, la stessa che in questo momento sta leggendo
-queste parole. Se possiamo visualizzare la pressione di un secondo tasto e
-immaginarne il suono, abbiamo appena posato il primo mattone per costruire
-l'edificio mentale sonoro, abbiamo cioè concettualizzato l'intervallo a livello
-cognitivo.
+Non è possibile vedere un suono viaggiare attraverso l'aria, ma visualizzare
+mentalmente la pressione di un dito sul tasto del piano è possibile ed è anche
+possibile immaginarne il suono prodotto usando la nostra voce interiore, la
+stessa che in questo momento sta leggendo queste parole. Se possiamo
+visualizzare la pressione di un secondo tasto e immaginarne il suono, abbiamo
+appena posato il primo mattone per costruire l'edificio mentale sonoro, abbiamo
+cioè concettualizzato l'intervallo a livello cognitivo.
 
 Ci sono pianisti classici che, dopo essersi allenati a lungo per un concerto,
 possono sedere, chiudere gli occhi e immaginare l'intera performance senza

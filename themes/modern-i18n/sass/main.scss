@@ -679,6 +679,68 @@ img {
   margin-left: 300px;
 }
 
+// Footnotes
+.footnote-reference {
+  font-size: var(--text-sm);
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: var(--transition-all);
+
+    &:hover {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+.footnote-definition {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  position: relative;
+
+  .footnote-definition-label {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-right: var(--spacing-sm);
+  }
+
+  p {
+    margin: 0;
+    display: inline;
+  }
+
+  // Add return link after footnote content
+  &::after {
+    content: " ↩";
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-left: var(--spacing-sm);
+    cursor: pointer;
+    transition: var(--transition-all);
+
+    &:hover {
+      color: var(--color-accent-hover);
+    }
+  }
+
+  // Make the entire footnote clickable for return
+  &:hover {
+    background-color: var(--color-accent-light);
+  }
+}
+
+// JavaScript will handle the click events for return functionality
+.footnote-definition[data-return-target] {
+  cursor: pointer;
+}
+
 .post-content, .page-content {
   margin-bottom: var(--spacing-2xl);
   

@@ -114,9 +114,9 @@ colors and the shape of the characters that indicate title and author. In a
 fraction of a second we are perfectly aware that that object is a bookshelf,
 that the graphics of the spines suggest computer science texts, and that in
 total the volumes will be about thirty. We don't need the word bookshelf to know
-what we're dealing with because we know it a priori. Only if we have
-the need to communicate the concept of bookshelf will we use the specific word
-in the language of our interlocutor.
+what we're dealing with because we know it a priori. Only if we have the need to
+communicate the concept of bookshelf will we use the specific word in the
+language of our interlocutor.
 
 If in a library we need to find a certain volume, we can search for its title.
 With a simple observation we realize if the volumes are arranged in alphabetical
@@ -190,12 +190,13 @@ That's why at least elementary piano study is recommended: to develop the
 conceptualization ability that serves to supplement the apparent lack of
 concreteness in the otherwise ephemeral world of sounds.
 
-You can't see sound waves traveling through the air. However, mentally visualizing the pressure 
-a finger exerts on a piano key is possible, as it's also possible to imagine the sound produced
-using our inner voice, the same one that is reading these words right now. If we
-can visualize the pressure of a second key and imagine its sound, we have just
-laid the first brick to mental sound building. In other words, we have
-conceptualized the interval at a cognitive level.
+You can't see sound waves traveling through the air. However, mentally
+visualizing the pressure a finger exerts on a piano key is possible, as it's
+also possible to imagine the sound produced using our inner voice, the same one
+that is reading these words right now. If we can visualize the pressure of a
+second key and imagine its sound, we have just laid the first brick to mental
+sound building. In other words, we have conceptualized the interval at a
+cognitive level.
 
 There are classical pianists who, after training long for a concert, can sit,
 close their eyes, and imagine the entire performance without even touching the
@@ -439,16 +440,16 @@ don't succeed immediately. Be patient, insist calmly and decisively, and you'll
 see that it will be possible for you to succeed.
 
 When you've practiced long enough (where enough varies from person to person:
-sometimes minutes, other times months), you can try the
-next exercise which consists of giving yourself a reference (for example, you
-can play the note C) and trying to imagine what sound will come out by pressing
-another white key. For example, first I play the note C and sing it, then I
-think of the F key and try to imagine what sound will be produced by pressing
-the key. Then I sing the note I think is F, and finally I play it to verify that
-it's correct. Since you've previously practiced the major scale up to an octave,
-you should be able to imagine the sounds of all the white keys from C to C of
-the next octave. Also try changing the reference, that is, don't always play C
-as the first note: use a random one.
+sometimes minutes, other times months), you can try the next exercise which
+consists of giving yourself a reference (for example, you can play the note C)
+and trying to imagine what sound will come out by pressing another white key.
+For example, first I play the note C and sing it, then I think of the F key and
+try to imagine what sound will be produced by pressing the key. Then I sing the
+note I think is F, and finally I play it to verify that it's correct. Since
+you've previously practiced the major scale up to an octave, you should be able
+to imagine the sounds of all the white keys from C to C of the next octave. Also
+try changing the reference, that is, don't always play C as the first note: use
+a random one.
 
 The exercise I propose now serves to verify unequivocally that you've
 internalized the major scale at an instinctive level. Generate some groups of
@@ -645,8 +646,8 @@ In short, dad learned to play a decent number of songs, and I understood what
 his procedure was. At the time I particularly liked the melody of a song by Memo
 Remigi whose title and melody I've unfortunately forgotten, and dad, seeing me
 playing with the organ, thought of sticking numbers to the keys and writing the
-melody for me on a piece of paper in the form of a numbers sequence. He 
-must have probably seen a Bontempi keyboard of those that were once given as gifts to
+melody for me on a piece of paper in the form of a numbers sequence. He must
+have probably seen a Bontempi keyboard of those that were once given as gifts to
 children and had thought of replicating the Bontempi system on his much more
 serious Ekosonic organ.
 
@@ -702,10 +703,10 @@ brain with sounds is the same that happens, for example, when we see an object:
 if I'm looking at a car, I know that object is a car, there's no way to unsee
 the car object without closing my eyes.
 
-If I listen to a major chord, I instinctively know that it's a major chord.
-I may not know what key it's in as I don't have a reference. However, I'm
-certain of the chord quality because for my hearing the level of recognition is
-the same as that of sight towards a real, mundane object.
+If I listen to a major chord, I instinctively know that it's a major chord. I
+may not know what key it's in as I don't have a reference. However, I'm certain
+of the chord quality because for my hearing the level of recognition is the same
+as that of sight towards a real, mundane object.
 
 Not having a reference is not a disadvantage at all, quite the contrary. For
 example, if I find myself in a doctor's waiting room, I can decide to play All
