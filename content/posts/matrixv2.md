@@ -27,7 +27,7 @@ Once it's loaded, the following commands are available through the keyboard:
 
 You can take a look at the source code in my
 [C64 Playground](https://github.com/mcaserta/c64-playground) repository on
-github and download the [prg image](../../c64/matrix.prg) for your retro
+github and download the [prg image](/c64/matrix.prg) for your retro
 emulation enjoyment.
 
 If you run the screensaver on the real thing and send me a video of it, you are

@@ -27,7 +27,7 @@ Una vez cargado, están disponibles los siguientes comandos a través del teclad
 
 Puedes echar un vistazo al código fuente en mi repositorio
 [C64 Playground](https://github.com/mcaserta/c64-playground) en github y
-descargar la [imagen prg](../../c64/matrix.prg) para tu disfrute de emulación
+descargar la [imagen prg](/c64/matrix.prg) para tu disfrute de emulación
 retro.
 
 Si ejecutas el salvapantallas en la máquina real y me envías un video, eres mi

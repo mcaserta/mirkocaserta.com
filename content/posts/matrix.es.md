@@ -23,7 +23,7 @@ Una vez cargado, los siguientes comandos están disponibles a través del teclad
 
 Puedes echar un vistazo al código fuente en mi repositorio
 [C64 Playground](https://github.com/mcaserta/c64-playground) en github y
-descargar la [imagen D64](../../c64/the-matrix.d64) para tu diversión con
+descargar la [imagen D64](/c64/the-matrix.d64) para tu diversión con
 emulación retro.
 
 Si ejecutas el screensaver en el hardware real y me envías un video, eres mi
