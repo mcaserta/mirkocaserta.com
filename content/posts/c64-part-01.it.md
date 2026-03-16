@@ -16,7 +16,7 @@ avere a casa è stato il Commodore 64.
 La prima cosa che un utente C64 vedeva dopo aver collegato il computer alla tv
 ed averlo acceso era questa schermata.
 
-![READY](../../images/posts/c64-ready.png)
+![READY](/images/posts/c64-ready.png)
 
 L'interprete basic ci informa di essere pronto ad accettare i comandi.
 
@@ -42,7 +42,7 @@ nella locazione di memoria `53280`:
 POKE 53280, 0
 ```
 
-![bordo nero](../../images/posts/c64-border.png)
+![bordo nero](/images/posts/c64-border.png)
 
 Come avrai intuito, la sintassi del comando `POKE` è:
 `POKE <INDIRIZZO>, <VALORE>`.
@@ -54,7 +54,7 @@ sfondo. Proviamo a cambiare anche questo in nero:
 POKE 53281, 0
 ```
 
-![sfondo nero](../../images/posts/c64-background.png)
+![sfondo nero](/images/posts/c64-background.png)
 
 Alla locazione `$0268`, ovvero 646 in decimale, c'è il colore dei caratteri.
 Cambiamolo in verde con il valore `5`:
@@ -63,12 +63,12 @@ Cambiamolo in verde con il valore `5`:
 POKE 646, 5
 ```
 
-![hacker mode](../../images/posts/c64-hacker.png)
+![hacker mode](/images/posts/c64-hacker.png)
 
 Prima di proseguire facciamo un soft reset dell'emulatore tramite il comando nel
 menu File.
 
-![soft reset](../../images/posts/c64-soft-reset.png)
+![soft reset](/images/posts/c64-soft-reset.png)
 
 # Giochiamo con la CPU
 
@@ -92,19 +92,19 @@ scopi.
 
 Attiviamo il monitor del VICE tramite la voce di menu sotto File.
 
-![activate monitor](../../images/posts/c64-activate-monitor.png)
+![activate monitor](/images/posts/c64-activate-monitor.png)
 
 La finestra del monitor si apre, bloccando temporaneamente l'esecuzione
 dell'emulatore.
 
-![activate monitor](../../images/posts/c64-monitor-pc.png)
+![activate monitor](/images/posts/c64-monitor-pc.png)
 
 Il monitor ci sta dicendo che il registro `C` (counter, abbreviazione di `PC`)
 sta puntando all'indirizzo `$e5d4`.
 
 Possiamo farci stampare il contenuto di tutti i registri tramite il comando `r`.
 
-![activate monitor](../../images/posts/c64-monitor-registers.png)
+![activate monitor](/images/posts/c64-monitor-registers.png)
 
 Il monitor ci dice che il program counter (`ADDR`) sta puntando a `$e5d4`, come
 ci aveva appena indicato nel prompt. I registri `A` e `X` contengono il valore

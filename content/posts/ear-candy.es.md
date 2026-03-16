@@ -11,7 +11,7 @@ tags = ['música', 'álbum']
 > las teclas correctas en el momento correcto y el instrumento se toca solo.» —
 > J. S. Bach
 
-![portada del álbum](../../images/posts/ear-candy-album-cover.png)
+![portada del álbum](/images/posts/ear-candy-album-cover.png)
 
 Lo que encuentro divertido de las citas es que es muy difícil averiguar si son
 confiables. Me gusta pensar que el Kapellmeister podría haber dicho eso

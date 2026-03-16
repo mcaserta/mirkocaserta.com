@@ -9,7 +9,7 @@ tags = ['musica', 'album']
 
 > «Puoi suonare anche una stringa se sei sincero.» — John Coltrane
 
-![copertina dell'album](../../images/posts/ballads-album-cover.png)
+![copertina dell'album](/images/posts/ballads-album-cover.png)
 
 Suono il pianoforte da quando ero bambino. In realtà, ho suonato prima l'organo,
 perché mio padre ne aveva uno a transistor che era piuttosto all'avanguardia per

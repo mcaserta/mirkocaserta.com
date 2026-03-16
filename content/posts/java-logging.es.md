@@ -128,7 +128,7 @@ pero con el tiempo te darás cuenta de que habrías hecho mejor en no hacerlo.
 
 # Cuidado con el copia y pega
 
-![Alarma roja](../../images/posts/blinking-alarm.gif)
+![Alarma roja](/images/posts/blinking-alarm.gif)
 
 Como ya se mencionó, puede suceder hacer copia y pega de declaraciones de log.
 

@@ -308,7 +308,7 @@ based on the sounds of the major scale.
 In the key of C, the major scale is composed of the notes: C, D, E, F, G, A, B,
 C. Let's observe the piano keyboard:
 
-![The piano keyboard](../../images/posts/tastiera.jpg)
+![The piano keyboard](/images/posts/tastiera.jpg)
 
 The C major scale, on the piano, is composed entirely of white keys. Easy,
 right? Play it a few times, first ascending and then descending. Sing it while

@@ -10,7 +10,7 @@ tags = ["musica", "strumentale", "album"]
 > «Tutto quello che ho mai lasciato andare porta segni di artigli.» — David
 > Foster Wallace
 
-![album cover](../../images/posts/the-last-time-i-had-fun-album-cover.png)
+![album cover](/images/posts/the-last-time-i-had-fun-album-cover.png)
 
 La cosa bella della musica strumentale è che dare titoli alle canzoni è forse
 banale e a volte può essere molto divertente.
@@ -38,7 +38,7 @@ una città relativamente piccola, e forse avevo sentito la parola _depressione_
 qualche volta, sempre riferendosi a qualcuno a cui nessuno avrebbe osato
 avvicinarsi.
 
-![Societal Myth](../../images/posts/societal-myth-sarah-andersen.png)
+![Societal Myth](/images/posts/societal-myth-sarah-andersen.png)
 [crediti](https://www.instagram.com/p/CjiZuPOsOr4/)
 
 Ai giorni nostri le cose vanno un po' meglio. La malattia mentale porta ancora

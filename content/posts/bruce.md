@@ -7,7 +7,7 @@ categories = ['Software']
 tags = ['java', 'cryptography', 'software development']
 +++
 
-![Bruce logo](../../images/posts/bruce-logo.png)
+![Bruce logo](/images/posts/bruce-logo.png)
 
 I just released Bruce, a Java library for performing cryptography.
 

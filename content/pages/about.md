@@ -4,7 +4,7 @@ title = 'About'
 description = 'Learn more about Mirko Caserta, a Senior Developer in Rome, Italy, who works on enterprise backends and is passionate about technology, music, and amateur radio.'
 +++
 
-![A picture of Mirko](../../images/mirko.jpg)
+![A picture of Mirko](/images/mirko.jpg)
 
 I'm a [Senior Developer](@/pages/cv.md) in Rome, Italy. I primarily dabble in
 enterprise backends. I'm not religious about programming languages, frameworks,

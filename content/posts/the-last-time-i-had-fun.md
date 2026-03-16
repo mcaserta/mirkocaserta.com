@@ -9,7 +9,7 @@ tags = ["music", "instrumental", "album"]
 
 > «Everything I’ve ever let go of has claw marks on it.» — David Foster Wallace
 
-![album cover](../../images/posts/the-last-time-i-had-fun-album-cover.png)
+![album cover](/images/posts/the-last-time-i-had-fun-album-cover.png)
 
 The nice thing with instrumental music is that giving titles to songs is maybe
 trivial and can sometimes be lots of fun.
@@ -34,7 +34,7 @@ shitless. I had no idea what was happening to me. I was living in a relatively
 small town, and I had maybe heard the word _depression_ a few times, always
 referring to someone no one would dare go near to.
 
-![Societal Myth](../../images/posts/societal-myth-sarah-andersen.png)
+![Societal Myth](/images/posts/societal-myth-sarah-andersen.png)
 [credits](https://www.instagram.com/p/CjiZuPOsOr4/)
 
 These days things are a bit better. Mental illness still carries around a

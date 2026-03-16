@@ -7,7 +7,7 @@ categories = ["Musica"]
 tags = ["improvvisazione", "musica", "album"]
 +++
 
-![album cover](../../images/posts/missa-album-cover.png)
+![album cover](/images/posts/missa-album-cover.png)
 
 ## Long Story Short
 

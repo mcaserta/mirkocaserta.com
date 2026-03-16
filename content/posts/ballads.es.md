@@ -9,7 +9,7 @@ tags = ['música', 'álbum']
 
 > «Puedes tocar una cuerda si eres sincero.» — John Coltrane
 
-![portada del álbum](../../images/posts/ballads-album-cover.png)
+![portada del álbum](/images/posts/ballads-album-cover.png)
 
 He estado tocando el piano desde que era un niño. En realidad, toqué el órgano
 primero, ya que mi papá tenía uno de transistores que era bastante de vanguardia

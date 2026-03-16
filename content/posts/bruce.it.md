@@ -7,7 +7,7 @@ categories = ['Software']
 tags = ['java', 'crittografia', 'sviluppo software']
 +++
 
-![Logo Bruce](../../images/posts/bruce-logo.png)
+![Logo Bruce](/images/posts/bruce-logo.png)
 
 Ho appena rilasciato Bruce, una libreria Java per eseguire operazioni di
 crittografia.

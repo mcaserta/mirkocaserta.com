@@ -125,7 +125,7 @@ tempo ti renderai conto che avresti fatto meglio a non farlo.
 
 # Occhio al copia e incolla
 
-![Allarme rosso](../../images/posts/blinking-alarm.gif)
+![Allarme rosso](/images/posts/blinking-alarm.gif)
 
 Come già accennato, può capitare di fare copia e incolla di statement di log.
 

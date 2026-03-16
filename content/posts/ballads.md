@@ -9,7 +9,7 @@ tags = ['music', 'album']
 
 > «You can play a shoestring if you're sincere.» — John Coltrane
 
-![album cover](../../images/posts/ballads-album-cover.png)
+![album cover](/images/posts/ballads-album-cover.png)
 
 I have been playing the piano since I was a little kid. Actually, I played the
 organ first, as my dad had a transistor one that was pretty state of the art for

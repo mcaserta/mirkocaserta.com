@@ -9,7 +9,7 @@ tags = ["música", "instrumental", "álbum"]
 
 > «Todo lo que he dejado ir tiene marcas de garras.» — David Foster Wallace
 
-![album cover](../../images/posts/the-last-time-i-had-fun-album-cover.png)
+![album cover](/images/posts/the-last-time-i-had-fun-album-cover.png)
 
 Lo bueno de la música instrumental es que darle títulos a las canciones tal vez
 sea trivial y a veces puede ser muy divertido.
@@ -36,7 +36,7 @@ relativamente pequeña, y tal vez había escuchado la palabra _depresión_ unas
 cuantas veces, siempre refiriéndose a alguien a quien nadie se atrevería a
 acercarse.
 
-![Societal Myth](../../images/posts/societal-myth-sarah-andersen.png)
+![Societal Myth](/images/posts/societal-myth-sarah-andersen.png)
 [créditos](https://www.instagram.com/p/CjiZuPOsOr4/)
 
 En estos días las cosas están un poco mejor. La enfermedad mental aún lleva

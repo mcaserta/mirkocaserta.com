@@ -321,7 +321,7 @@ suoni della scala maggiore.
 Nella tonalità di DO, la scala maggiore è composta dalle note: DO, RE, MI, FA,
 SOL, LA, SI, DO. Osserviamo la tastiera del pianoforte:
 
-![La tastiera del pianoforte](../../images/posts/tastiera.jpg)
+![La tastiera del pianoforte](/images/posts/tastiera.jpg)
 
 La scala maggiore di DO, sul pianoforte, è composta interamente da tasti
 bianchi. Facile, no? Suonala un po' di volte, prima a salire e poi a scendere.

@@ -4,7 +4,7 @@ title = 'Chi Sono'
 description = 'Scopri di più su Mirko Caserta, uno Sviluppatore Senior a Roma, Italia, che lavora su backend aziendali ed è appassionato di tecnologia, musica e radio.'
 +++
 
-![Una foto di Mirko](../../images/mirko.jpg)
+![Una foto di Mirko](/images/mirko.jpg)
 
 Sono un [Senior Developer](@/pages/cv.it.md) a Roma, Italia. Mi occupo
 principalmente di backend aziendali. Non sono dogmatico riguardo linguaggi di

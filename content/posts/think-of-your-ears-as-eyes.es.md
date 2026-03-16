@@ -320,7 +320,7 @@ la escala mayor.
 En la tonalidad de DO, la escala mayor está compuesta por las notas: DO, RE, MI,
 FA, SOL, LA, SI, DO. Observemos el teclado del piano:
 
-![El teclado del piano](../../images/posts/tastiera.jpg)
+![El teclado del piano](/images/posts/tastiera.jpg)
 
 La escala mayor de DO, en el piano, está compuesta enteramente por teclas
 blancas. Fácil, ¿verdad? Tócala unas cuantas veces, primero ascendiendo y luego

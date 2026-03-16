@@ -7,7 +7,7 @@ categories = ["Música"]
 tags = ["improvisación", "música", "álbum"]
 +++
 
-![album cover](../../images/posts/missa-album-cover.png)
+![album cover](/images/posts/missa-album-cover.png)
 
 ## Versión Corta
 

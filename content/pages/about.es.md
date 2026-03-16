@@ -4,7 +4,7 @@ title = 'Acerca de'
 description = 'Conoce más sobre Mirko Caserta, un Desarrollador Senior en Roma, Italia, que trabaja en backends empresariales y es apasionado de la tecnología, música y radio.'
 +++
 
-![Una foto de Mirko](../../images/mirko.jpg)
+![Una foto de Mirko](/images/mirko.jpg)
 
 Soy un [Senior Developer](@/pages/cv.es.md) en Roma, Italia. Me dedico
 principalmente a backends empresariales. No soy dogmático sobre lenguajes de

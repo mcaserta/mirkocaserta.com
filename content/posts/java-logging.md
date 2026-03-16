@@ -123,7 +123,7 @@ but over time you'll realize that you would have done better not to do it.
 
 # Watch out for copy and paste
 
-![Red alarm](../../images/posts/blinking-alarm.gif)
+![Red alarm](/images/posts/blinking-alarm.gif)
 
 As already mentioned, it can happen to copy and paste log statements.
 

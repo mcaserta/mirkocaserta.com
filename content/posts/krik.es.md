@@ -9,7 +9,7 @@ tags = ["software", "ai", "claude code", "anthropic", "rust"]
 
 # Krik
 
-![Logo de Krik](../../images/posts/krik.png)
+![Logo de Krik](/images/posts/krik.png)
 
 Pasé los últimos 2-3 días desarrollando un generador de sitios estáticos en Rust
 usando exclusivamente [Claude Code](https://claude.ai/).

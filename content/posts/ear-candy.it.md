@@ -10,7 +10,7 @@ tags = ['musica', 'album']
 > «Non c'è nulla di straordinario. Tutto quello che bisogna fare è premere i
 > tasti giusti al momento giusto e lo strumento suona da solo.» — J. S. Bach
 
-![copertina dell'album](../../images/posts/ear-candy-album-cover.png)
+![copertina dell'album](/images/posts/ear-candy-album-cover.png)
 
 Quello che trovo divertente delle citazioni è che è molto difficile scoprire se
 sono attendibili. Mi piace pensare che il Kapellmeister potrebbe averlo

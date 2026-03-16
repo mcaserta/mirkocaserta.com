@@ -10,7 +10,7 @@ tags = ['music', 'album']
 > «There's nothing remarkable about it. All one has to do is hit the right keys
 > at the right time and the instrument plays itself.» — J. S. Bach
 
-![album cover](../../images/posts/ear-candy-album-cover.png)
+![album cover](/images/posts/ear-candy-album-cover.png)
 
 What I find amusing about quotes is that it's very hard to find out if they are
 trustworthy. I like to think that the Kapellmeister might actually have said
