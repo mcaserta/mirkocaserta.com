@@ -3,12 +3,14 @@
 # Navigation
 home = "Home"
 posts = "Blog"
+pages = "Pages"
 categories = "Categories"
 tags = "Tags"
 
 # Homepage
 welcome_title = "Welcome to my website"
 welcome_description = "Personal website and blog"
+hero_description = "Senior Developer &amp; Software Architect with 25+ years of experience in enterprise software, cloud platforms, and open source."
 recent_posts = "Recent Blog Posts"
 view_all_posts = "View all posts"
 no_posts_yet = "No posts published yet. Check back soon!"

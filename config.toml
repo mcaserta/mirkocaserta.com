@@ -1,37 +1,60 @@
 base_url = "https://mirkocaserta.com"
-title = "Mirko Caserta"
 author = "Mirko Caserta"
-description = "Personal website and blog"
 default_language = "en"
 compile_sass = true
 build_search_index = true
 generate_feeds = true
 theme = "modern-i18n"
 
+[languages.en]
+title = "Mirko Caserta"
+description = "Personal website and blog"
+taxonomies = [
+    {name = "tags", paginate_by = 10},
+    {name = "categories", paginate_by = 10},
+]
+
+[languages.it]
+title = "Mirko Caserta"
+description = "Sito personale e blog"
+taxonomies = [
+    {name = "tags", paginate_by = 10},
+    {name = "categories", paginate_by = 10},
+]
+
+[languages.es]
+title = "Mirko Caserta"
+description = "Sitio web personal y blog"
 taxonomies = [
     {name = "tags", paginate_by = 10},
     {name = "categories", paginate_by = 10},
 ]
 
 [markdown]
+
+[markdown.highlighting]
 highlight_code = true
-highlight_theme = "base16-ocean-dark"
+theme = "dracula"
 
 # Navigation menu items
 [[extra.menu.main]]
-name = "Blog"
-url = "/"
+name = "Posts"
+key = "posts"
+url = "/posts/"
 
 [[extra.menu.main]]
 name = "Pages"
+key = "pages"
 url = "/pages/"
 
 [[extra.menu.main]]
-name = "Categories" 
+name = "Categories"
+key = "categories"
 url = "/categories/"
 
 [[extra.menu.main]]
 name = "Tags"
+key = "tags"
 url = "/tags/"
 
 [extra]

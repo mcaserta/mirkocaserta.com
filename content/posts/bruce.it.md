@@ -16,7 +16,7 @@ Ecco i link rilevanti:
 
 - [github](https://github.com/mcaserta/bruce)
 - [docs](https://bruce.mirkocaserta.com)
-- [download](https://jitpack.io/#mcaserta/bruce)
+- [download](https://jitpack.io/com/github/mcaserta/bruce/)
 
 C'è ancora molto spazio per miglioramenti.
 

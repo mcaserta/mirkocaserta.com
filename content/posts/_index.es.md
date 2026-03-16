@@ -1,0 +1,6 @@
++++
+title = "Artículos"
+template = "section.html"
+sort_by = "date"
+paginate_by = 12
++++

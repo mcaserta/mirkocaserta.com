@@ -60,6 +60,23 @@
         
         <footer class="footer">
             <div class="container">
+                {%- if lang == "it" %}
+                <p>
+                    Contenuto rilasciato sotto licenza
+                    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">
+                        CC BY 4.0
+                    </a>
+                    - Sei libero di usare, condividere e adattare questo contenuto con attribuzione.
+                </p>
+                {%- elif lang == "es" %}
+                <p>
+                    Contenido bajo licencia
+                    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">
+                        CC BY 4.0
+                    </a>
+                    - Puedes usar, compartir y adaptar este contenido con atribución.
+                </p>
+                {%- else %}
                 <p>
                     Content licensed under
                     <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">
@@ -67,6 +84,7 @@
                     </a>
                     - You are free to use, share, and adapt this content with attribution.
                 </p>
+                {%- endif %}
             </div>
         </footer>
     </div>

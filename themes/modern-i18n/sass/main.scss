@@ -371,6 +371,27 @@ img {
   margin: 0 auto;
 }
 
+.hero-portrait {
+  margin-bottom: var(--spacing-xl);
+
+  img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-accent);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+}
+
 // Section headers
 .section-header {
   text-align: center;

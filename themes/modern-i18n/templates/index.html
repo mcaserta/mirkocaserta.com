@@ -1,11 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
+{%- set lang_prefix = "" %}
+{%- if lang and lang != config.default_language %}
+    {%- set lang_prefix = "/" ~ lang %}
+{%- endif %}
+
+{%- if lang == "it" %}
+    {%- set lbl_recent_posts = "Articoli recenti" %}
+    {%- set lbl_view_all = "Vedi tutti gli articoli" %}
+    {%- set lbl_no_posts = "Nessun articolo ancora pubblicato. Torna presto!" %}
+    {%- set lbl_hero_desc = "Senior Developer e Software Architect con oltre 25 anni di esperienza in software enterprise, piattaforme cloud e open source." %}
+{%- elif lang == "es" %}
+    {%- set lbl_recent_posts = "Artículos recientes" %}
+    {%- set lbl_view_all = "Ver todos los artículos" %}
+    {%- set lbl_no_posts = "Aún no se han publicado artículos. ¡Vuelve pronto!" %}
+    {%- set lbl_hero_desc = "Senior Developer y Arquitecto de Software con más de 25 años de experiencia en software empresarial, plataformas cloud y código abierto." %}
+{%- else %}
+    {%- set lbl_recent_posts = "Recent Blog Posts" %}
+    {%- set lbl_view_all = "View all posts" %}
+    {%- set lbl_no_posts = "No posts published yet. Check back soon!" %}
+    {%- set lbl_hero_desc = "Senior Developer & Software Architect with 25+ years of experience in enterprise software, cloud platforms, and open source." %}
+{%- endif %}
+
 <div class="container">
-    {%- set blog_section = get_section(path="posts/_index.md") %}
+    <section class="hero">
+        <div class="hero-portrait">
+            <img src="/images/mirko.jpg" alt="Mirko Caserta">
+        </div>
+        <h1 class="hero-title">Mirko Caserta</h1>
+        <p class="hero-description">{{ lbl_hero_desc }}</p>
+        <div class="hero-links">
+            {%- if lang == "it" %}
+            <a href="/it/pages/cv/" class="button button-secondary">Curriculum Vitae</a>
+            {%- elif lang == "es" %}
+            <a href="/es/pages/cv/" class="button button-secondary">Currículum Vítae</a>
+            {%- else %}
+            <a href="/pages/cv/" class="button button-secondary">Curriculum Vitae</a>
+            {%- endif %}
+        </div>
+    </section>
+
+    {%- if lang == "it" %}
+        {%- set blog_section = get_section(path="posts/_index.it.md") %}
+    {%- elif lang == "es" %}
+        {%- set blog_section = get_section(path="posts/_index.es.md") %}
+    {%- else %}
+        {%- set blog_section = get_section(path="posts/_index.md") %}
+    {%- endif %}
+
     {%- if blog_section and blog_section.pages %}
     <section class="posts-section">
-        <h2 class="section-title">Recent Blog Posts</h2>
+        <h2 class="section-title">{{ lbl_recent_posts }}</h2>
 
         <div class="posts-grid">
             {%- for post in blog_section.pages | slice(end=6) %}
@@ -29,7 +75,7 @@
                         {%- if post.taxonomies.categories %}
                         <div class="post-categories">
                             {%- for category in post.taxonomies.categories %}
-                            <a href="/categories/{{ category | slugify }}/" class="category-link">
+                            <a href="{{ lang_prefix }}/categories/{{ category | slugify }}/" class="category-link">
                                 {{ category }}
                             </a>
                             {%- endfor %}
@@ -46,7 +92,7 @@
                     {%- if post.taxonomies.tags %}
                     <div class="post-tags">
                         {%- for tag in post.taxonomies.tags | slice(end=3) %}
-                        <a href="/tags/{{ tag | slugify }}/" class="tag-link">
+                        <a href="{{ lang_prefix }}/tags/{{ tag | slugify }}/" class="tag-link">
                             #{{ tag }}
                         </a>
                         {%- endfor %}
@@ -58,12 +104,12 @@
         </div>
 
         <div class="posts-more">
-            <a href="{{ get_url(path="/posts/") }}" class="button button-primary">View all posts</a>
+            <a href="{{ lang_prefix }}/posts/" class="button button-primary">{{ lbl_view_all }}</a>
         </div>
     </section>
     {%- else %}
     <section class="empty-state">
-        <p class="empty-message">No posts published yet. Check back soon!</p>
+        <p class="empty-message">{{ lbl_no_posts }}</p>
     </section>
     {%- endif %}
 </div>

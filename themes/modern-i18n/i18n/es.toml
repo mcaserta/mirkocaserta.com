@@ -3,12 +3,14 @@
 # Navigation
 home = "Inicio"
 posts = "Artículos"
+pages = "Páginas"
 categories = "Categorías"
 tags = "Etiquetas"
 
 # Homepage
 welcome_title = "Bienvenido a mi sitio web"
 welcome_description = "Sitio web personal y blog"
+hero_description = "Senior Developer y Arquitecto de Software con más de 25 años de experiencia en software empresarial, plataformas cloud y código abierto."
 recent_posts = "Artículos recientes"
 view_all_posts = "Ver todos los artículos"
 no_posts_yet = "Aún no se han publicado artículos. ¡Vuelve pronto!"

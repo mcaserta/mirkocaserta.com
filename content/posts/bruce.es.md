@@ -15,7 +15,7 @@ Aquí están los enlaces relevantes:
 
 - [github](https://github.com/mcaserta/bruce)
 - [docs](https://bruce.mirkocaserta.com)
-- [download](https://jitpack.io/#mcaserta/bruce)
+- [download](https://jitpack.io/com/github/mcaserta/bruce/)
 
 Aún hay mucho espacio para mejoras.
 

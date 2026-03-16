@@ -74,13 +74,13 @@
     {%- if paginator %}
     <nav class="pagination">
         {%- if paginator.previous %}
-        <a href="{{ paginator.previous }}" class="pagination-link pagination-prev">← Newer posts</a>
+        <a href="{{ paginator.previous }}" class="pagination-link pagination-prev">{% if lang == "it" %}← Articoli più recenti{% elif lang == "es" %}← Artículos más recientes{% else %}← Newer posts{% endif %}</a>
         {%- endif %}
-        
-        <span class="pagination-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-        
+
+        <span class="pagination-info">{% if lang == "it" %}Pagina{% elif lang == "es" %}Página{% else %}Page{% endif %} {{ paginator.current_index }} {% if lang == "it" or lang == "es" %}de{% else %}of{% endif %} {{ paginator.number_pagers }}</span>
+
         {%- if paginator.next %}
-        <a href="{{ paginator.next }}" class="pagination-link pagination-next">Older posts →</a>
+        <a href="{{ paginator.next }}" class="pagination-link pagination-next">{% if lang == "it" %}Articoli più vecchi →{% elif lang == "es" %}Artículos más antiguos →{% else %}Older posts →{% endif %}</a>
         {%- endif %}
     </nav>
     {%- endif %}

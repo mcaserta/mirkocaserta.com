@@ -86,7 +86,7 @@
     <nav class="post-navigation {%- if page.extra.toc %} post-navigation-with-toc{%- endif %}">
         {%- if page.later %}
         <div class="post-nav-item post-nav-prev">
-            <span class="post-nav-label">Previous post</span>
+            <span class="post-nav-label">{% if lang == "it" %}Articolo precedente{% elif lang == "es" %}Artículo anterior{% else %}Previous post{% endif %}</span>
             <a href="{{ page.later.permalink }}" class="post-nav-link">
                 {{ page.later.title }}
             </a>
@@ -95,7 +95,7 @@
 
         {%- if page.earlier %}
         <div class="post-nav-item post-nav-next">
-            <span class="post-nav-label">Next post</span>
+            <span class="post-nav-label">{% if lang == "it" %}Prossimo articolo{% elif lang == "es" %}Siguiente artículo{% else %}Next post{% endif %}</span>
             <a href="{{ page.earlier.permalink }}" class="post-nav-link">
                 {{ page.earlier.title }}
             </a>
