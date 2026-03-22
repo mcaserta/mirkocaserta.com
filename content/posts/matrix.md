@@ -23,8 +23,12 @@ Once it's loaded, the following commands are available through the keyboard:
 
 You can take a look at the source code in my
 [C64 Playground](https://github.com/mcaserta/c64-playground) repository on
-github and download the [D64 image](/c64/the-matrix.d64) for your retro
+github and download the [D64 image](/c64/matrix-v1.d64) for your retro
 emulation enjoyment.
+
+If you want a quick browser demo, you can [run it directly here](/c64/tiny8bit/c64-autorun.html?file=/c64/matrix-v1.prg).
+
+I reworked this mess and got a much better version: [The Matrix Screensaver for Commodore 64, version 2](@/posts/matrixv2.md).
 
 If you run the screensaver on the real thing and send me a video of it, you are
 my hero.

@@ -27,8 +27,10 @@ Una volta caricato, sono disponibili i seguenti comandi tramite tastiera:
 
 Puoi dare un'occhiata al codice sorgente nel mio repository
 [C64 Playground](https://github.com/mcaserta/c64-playground) su github e
-scaricare l'[immagine prg](/c64/matrix.prg) per il tuo divertimento con
+scaricare l'[immagine prg](/c64/matrix-v2.prg) per il tuo divertimento con
 l'emulazione retro.
+
+Puoi anche [eseguirlo direttamente nel browser](/c64/tiny8bit/c64-autorun.html?file=/c64/matrix-v2.prg).
 
 Se fai girare lo screensaver sulla macchina vera e mi mandi un video, sei il mio
 eroe.

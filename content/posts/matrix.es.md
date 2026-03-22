@@ -23,8 +23,12 @@ Una vez cargado, los siguientes comandos están disponibles a través del teclad
 
 Puedes echar un vistazo al código fuente en mi repositorio
 [C64 Playground](https://github.com/mcaserta/c64-playground) en github y
-descargar la [imagen D64](/c64/the-matrix.d64) para tu diversión con
+descargar la [imagen D64](/c64/matrix-v1.d64) para tu diversión con
 emulación retro.
+
+Si quieres una demo rápida en el navegador, puedes [ejecutarla directamente aquí](/c64/tiny8bit/c64-autorun.html?file=/c64/matrix-v1.prg).
+
+Rehice este desastre y conseguí una versión mucho mejor: [El Salvapantallas Matrix para Commodore 64, versión 2](@/posts/matrixv2.es.md).
 
 Si ejecutas el screensaver en el hardware real y me envías un video, eres mi
 héroe.

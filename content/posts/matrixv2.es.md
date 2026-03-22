@@ -27,8 +27,10 @@ Una vez cargado, están disponibles los siguientes comandos a través del teclad
 
 Puedes echar un vistazo al código fuente en mi repositorio
 [C64 Playground](https://github.com/mcaserta/c64-playground) en github y
-descargar la [imagen prg](/c64/matrix.prg) para tu disfrute de emulación
+descargar la [imagen prg](/c64/matrix-v2.prg) para tu disfrute de emulación
 retro.
+
+También puedes [ejecutarlo directamente en tu navegador](/c64/tiny8bit/c64-autorun.html?file=/c64/matrix-v2.prg).
 
 Si ejecutas el salvapantallas en la máquina real y me envías un video, eres mi
 héroe.
