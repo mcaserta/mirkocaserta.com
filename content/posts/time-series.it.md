@@ -190,12 +190,13 @@ più recente dell'altro tipo. In altre parole:
 | `11`     | `9, 11`                  |
 | `12`     | `11, 12`                 |
 
-Puoi pensare a questo tipo di movimento come a una
-[rolling time window](https://towardsdatascience.com/time-series-analysis-resampling-shifting-and-rolling-f5664ddef77e)
-poiché hai una finestra che si muove nel tempo focalizzandosi sui dati più
-recenti per le nostre specifiche misure di `T` e `C` ad ogni passo[^creep].
+Questa tecnica è nota come _last-value carry-forward_ (a volte chiamata
+_as-of join_): per ogni nuovo dato, guardiamo indietro e prendiamo il valore più
+recente di ogni tipo visto finora. Man mano che avanziamo nella timeline,
+abbiniamo sempre la lettura corrente con l'ultimo valore disponibile dell'altro
+tipo[^creep].
 
-## Rolling Time Window
+## Last-Value Carry-Forward
 
 Vai avanti, scrolla in basso. Dovresti vederla.
 
@@ -206,7 +207,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 1-2
+**Carry-forward:** id 1, 2
 
 > Step 02: T = 10.3, C = 2.0, AQi = 13.875
 
@@ -215,7 +216,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 2-3
+**Carry-forward:** id 2, 3
 
 > Step 03: T = 10.3, C = 2.3, AQi = 14.025
 
@@ -224,7 +225,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 3-4
+**Carry-forward:** id 3, 4
 
 > Step 04: T = 10.7, C = 2.3, AQi = 14.525
 
@@ -233,7 +234,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 4-5
+**Carry-forward:** id 4, 5
 
 > Step 05: T = 10.9, C = 2.3, AQi = 14.775
 
@@ -242,7 +243,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 4-6
+**Carry-forward:** id 4, 6
 
 > Step 06: T = 10.9, C = 2.8, AQi = 15.025
 
@@ -251,7 +252,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 6-7
+**Carry-forward:** id 6, 7
 
 > Step 07: T = 11.0, C = 2.8, AQi = 15.150
 
@@ -260,7 +261,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 7-8
+**Carry-forward:** id 7, 8
 
 > Step 08: T = 11.1, C = 2.8, AQi = 15.275
 
@@ -269,7 +270,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 7-9
+**Carry-forward:** id 7, 9
 
 > Step 09: T = 11.1, C = 2.9, AQi = 15.325
 
@@ -278,7 +279,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 9-10
+**Carry-forward:** id 9, 10
 
 > Step 10: T = 11.1, C = 3.3, AQi = 15.525
 
@@ -287,7 +288,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 9-11
+**Carry-forward:** id 9, 11
 
 > Step 11: T = 11.3, C = 3.3, AQi = 15.775
 
@@ -296,7 +297,7 @@ Vai avanti, scrolla in basso. Dovresti vederla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Finestra:** id 11-12
+**Carry-forward:** id 11, 12
 
 Dato quanto sopra, la nostra time series completa per l'`AQi` è:
 

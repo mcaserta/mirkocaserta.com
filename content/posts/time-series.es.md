@@ -187,12 +187,13 @@ valor más reciente del otro tipo. En otras palabras:
 | `11`       | `9, 11`                 |
 | `12`       | `11, 12`                |
 
-Puedes pensar en este tipo de movimiento como una
-[rolling time window](https://towardsdatascience.com/time-series-analysis-resampling-shifting-and-rolling-f5664ddef77e)
-ya que tienes una ventana que se mueve en el tiempo enfocándose en los datos más
-recientes para nuestras medidas específicas de `T` y `C` en cada paso[^creep].
+Esta técnica se conoce como _last-value carry-forward_ (a veces llamada
+_as-of join_): para cada nuevo dato, miramos hacia atrás y tomamos el valor más
+reciente de cada tipo visto hasta ahora. A medida que avanzamos en la línea
+temporal, siempre emparejamos la lectura actual con el último valor disponible
+del otro tipo[^creep].
 
-## Rolling Time Window
+## Last-Value Carry-Forward
 
 Adelante, desplázate hacia abajo. Deberías verla.
 
@@ -203,7 +204,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 1-2
+**Carry-forward:** id 1, 2
 
 > Step 02: T = 10.3, C = 2.0, AQi = 13.875
 
@@ -212,7 +213,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 2-3
+**Carry-forward:** id 2, 3
 
 > Step 03: T = 10.3, C = 2.3, AQi = 14.025
 
@@ -221,7 +222,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 3-4
+**Carry-forward:** id 3, 4
 
 > Step 04: T = 10.7, C = 2.3, AQi = 14.525
 
@@ -230,7 +231,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 4-5
+**Carry-forward:** id 4, 5
 
 > Step 05: T = 10.9, C = 2.3, AQi = 14.775
 
@@ -239,7 +240,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 4-6
+**Carry-forward:** id 4, 6
 
 > Step 06: T = 10.9, C = 2.8, AQi = 15.025
 
@@ -248,7 +249,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 6-7
+**Carry-forward:** id 6, 7
 
 > Step 07: T = 11.0, C = 2.8, AQi = 15.150
 
@@ -257,7 +258,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 7-8
+**Carry-forward:** id 7, 8
 
 > Step 08: T = 11.1, C = 2.8, AQi = 15.275
 
@@ -266,7 +267,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 7-9
+**Carry-forward:** id 7, 9
 
 > Step 09: T = 11.1, C = 2.9, AQi = 15.325
 
@@ -275,7 +276,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 9-10
+**Carry-forward:** id 9, 10
 
 > Step 10: T = 11.1, C = 3.3, AQi = 15.525
 
@@ -284,7 +285,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 9-11
+**Carry-forward:** id 9, 11
 
 > Step 11: T = 11.3, C = 3.3, AQi = 15.775
 
@@ -293,7 +294,7 @@ Adelante, desplázate hacia abajo. Deberías verla.
 | T   | 10.1 |     | 10.3 |     | 10.7 | 10.9 |     | 11.0 | 11.1 |     |     | 11.3 |
 | C   |      | 2.0 |      | 2.3 |      |      | 2.8 |      |      | 2.9 | 3.3 |      |
 
-**Ventana:** id 11-12
+**Carry-forward:** id 11, 12
 
 Dado lo anterior, nuestra serie temporal completa para el `AQi` es:
 
