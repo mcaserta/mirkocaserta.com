@@ -4,12 +4,12 @@ default_language = "en"
 compile_sass = true
 build_search_index = true
 generate_feeds = true
-feed_filenames = ["rss.xml"]
 theme = "modern-i18n"
 
 [languages.en]
 title = "Mirko Caserta"
 description = "Personal website and blog"
+feed_filenames = ["rss.xml"]
 taxonomies = [
     {name = "tags", paginate_by = 10},
     {name = "categories", paginate_by = 10},
@@ -18,6 +18,8 @@ taxonomies = [
 [languages.it]
 title = "Mirko Caserta"
 description = "Sito personale e blog"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 taxonomies = [
     {name = "tags", paginate_by = 10},
     {name = "categories", paginate_by = 10},
@@ -26,6 +28,8 @@ taxonomies = [
 [languages.es]
 title = "Mirko Caserta"
 description = "Sitio web personal y blog"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 taxonomies = [
     {name = "tags", paginate_by = 10},
     {name = "categories", paginate_by = 10},
