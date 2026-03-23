@@ -43,7 +43,12 @@
     </script>
     
     {%- if config.generate_feeds %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+    {%- for lang_code, lang_conf in config.languages %}
+    {%- if lang_conf.generate_feeds | default(value=false) %}
+    <link rel="alternate" type="application/rss+xml" title="RSS ({{ lang_code }})" hreflang="{{ lang_code }}" href="{{ get_url(path=lang_code ~ '/rss.xml', trailing_slash=false) }}">
+    {%- endif %}
+    {%- endfor %}
+    <link rel="alternate" type="application/rss+xml" title="RSS ({{ config.default_language }})" hreflang="{{ config.default_language }}" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
     {%- endif %}
     
     {%- block extra_head %}{% endblock extra_head %}
