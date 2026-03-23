@@ -604,8 +604,9 @@ fornendo esprimono tre cose:
 - il nostro accumulatore interno usa una `Queue<TypedTimeValue>`
 - alla fine del lavoro, ritorniamo una `List<TimeValue>`
 
-Una `Queue` è solo una `List` thread safe. Ne forniamo l'implementazione usando
-il metodo `supplier`:
+Usiamo una `Queue` perché `ConcurrentLinkedQueue` ci offre una collezione
+thread-safe per accumulare valori durante l'elaborazione parallela degli stream.
+Ne forniamo l'implementazione usando il metodo `supplier`:
 
 ```java
 @Override
@@ -614,8 +615,8 @@ public Supplier<Queue<TypedTimeValue>> supplier() {
 }
 ```
 
-In questo caso, l'implementazione è una `ConcurrentLinkedQueue` che, di nuovo, è
-solo una specie di `ArrayList` thread safe.
+In questo caso, l'implementazione è una `ConcurrentLinkedQueue` che ci garantisce
+inserimenti thread-safe durante l'elaborazione parallela.
 
 ```java
 @Override
