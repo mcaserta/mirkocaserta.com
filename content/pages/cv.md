@@ -1,12 +1,12 @@
 +++
 title = 'Curriculum Vitae'
 date = 2025-07-26T20:23:00Z
-description = 'Complete professional profile of Mirko Caserta, Senior Developer and Software Architect with over 25 years of experience in enterprise software development, cloud platforms, and diverse technology stacks.'
+description = 'Complete professional profile of Mirko Caserta, Senior Developer and Software Architect with over 30 years of experience in enterprise software development, cloud platforms, and diverse technology stacks.'
 +++
 
 ## Summary
 
-I am an experienced Senior Developer and Software Architect with over 25 years
+I am an experienced Senior Developer and Software Architect with over 30 years
 in the IT industry, currently working at Alten Spa in Rome. I have developed
 expertise across diverse technology stacks including cloud platforms (AWS,
 Google Cloud), microservices architectures, and modern development frameworks.
