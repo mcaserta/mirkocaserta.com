@@ -11,16 +11,19 @@
     {%- set lbl_view_all = "Vedi tutti gli articoli" %}
     {%- set lbl_no_posts = "Nessun articolo ancora pubblicato. Torna presto!" %}
     {%- set lbl_hero_desc = "Senior Developer e Software Architect con oltre 30 anni di esperienza in software enterprise, piattaforme cloud e open source." %}
+    {%- set lbl_pages = "Pagine" %}
 {%- elif lang == "es" %}
     {%- set lbl_recent_posts = "Artículos recientes" %}
     {%- set lbl_view_all = "Ver todos los artículos" %}
     {%- set lbl_no_posts = "Aún no se han publicado artículos. ¡Vuelve pronto!" %}
     {%- set lbl_hero_desc = "Senior Developer y Arquitecto de Software con más de 30 años de experiencia en software empresarial, plataformas cloud y código abierto." %}
+    {%- set lbl_pages = "Páginas" %}
 {%- else %}
     {%- set lbl_recent_posts = "Recent Blog Posts" %}
     {%- set lbl_view_all = "View all posts" %}
     {%- set lbl_no_posts = "No posts published yet. Check back soon!" %}
     {%- set lbl_hero_desc = "Senior Developer & Software Architect with 30 years of experience in enterprise software, cloud platforms, and open source." %}
+    {%- set lbl_pages = "Pages" %}
 {%- endif %}
 
 <div class="container">
@@ -53,52 +56,21 @@
     <section class="posts-section">
         <h2 class="section-title">{{ lbl_recent_posts }}</h2>
 
-        <div class="posts-grid">
-            {%- for post in blog_section.pages | slice(end=6) %}
-            <article class="post-card">
+        <div class="post-row-list">
+            {%- for post in blog_section.pages | slice(end=10) %}
+            <article class="post-row">
                 {%- if post.extra.featured_image %}
-                <div class="post-image">
-                    <img src="{{ get_url(path=post.extra.featured_image) }}" alt="{{ post.title }}" loading="lazy">
+                <img class="post-row-thumb" src="{{ get_url(path=post.extra.featured_image) }}" alt="" loading="lazy">
+                {%- endif %}
+                <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
+                <a href="{{ post.permalink }}" class="post-row-title">{{ post.title }}</a>
+                {%- if post.taxonomies.categories %}
+                <div class="post-row-categories">
+                    {%- for category in post.taxonomies.categories %}
+                    <a href="{{ lang_prefix }}/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
+                    {%- endfor %}
                 </div>
                 {%- endif %}
-
-                <div class="post-content">
-                    <h3 class="post-title">
-                        <a href="{{ post.permalink }}">{{ post.title }}</a>
-                    </h3>
-
-                    <div class="post-meta">
-                        <time datetime="{{ post.date }}">
-                            {{ post.date | date(format="%B %d, %Y") }}
-                        </time>
-
-                        {%- if post.taxonomies.categories %}
-                        <div class="post-categories">
-                            {%- for category in post.taxonomies.categories %}
-                            <a href="{{ lang_prefix }}/categories/{{ category | slugify }}/" class="category-link">
-                                {{ category }}
-                            </a>
-                            {%- endfor %}
-                        </div>
-                        {%- endif %}
-                    </div>
-
-                    {%- if post.summary %}
-                    <p class="post-summary">{{ post.summary }}</p>
-                    {%- elif post.description %}
-                    <p class="post-summary">{{ post.description }}</p>
-                    {%- endif %}
-
-                    {%- if post.taxonomies.tags %}
-                    <div class="post-tags">
-                        {%- for tag in post.taxonomies.tags | slice(end=3) %}
-                        <a href="{{ lang_prefix }}/tags/{{ tag | slugify }}/" class="tag-link">
-                            #{{ tag }}
-                        </a>
-                        {%- endfor %}
-                    </div>
-                    {%- endif %}
-                </div>
             </article>
             {%- endfor %}
         </div>
@@ -110,6 +82,28 @@
     {%- else %}
     <section class="empty-state">
         <p class="empty-message">{{ lbl_no_posts }}</p>
+    </section>
+    {%- endif %}
+
+    {%- if lang == "it" %}
+        {%- set pages_section = get_section(path="pages/_index.it.md") %}
+    {%- elif lang == "es" %}
+        {%- set pages_section = get_section(path="pages/_index.es.md") %}
+    {%- else %}
+        {%- set pages_section = get_section(path="pages/_index.md") %}
+    {%- endif %}
+
+    {%- if pages_section and pages_section.pages %}
+    <section class="posts-section">
+        <h2 class="section-title">{{ lbl_pages }}</h2>
+
+        <div class="post-row-list">
+            {%- for page in pages_section.pages %}
+            <article class="post-row">
+                <a href="{{ page.permalink }}" class="post-row-title">{{ page.title }}</a>
+            </article>
+            {%- endfor %}
+        </div>
     </section>
     {%- endif %}
 </div>

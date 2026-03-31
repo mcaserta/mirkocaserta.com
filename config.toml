@@ -11,8 +11,8 @@ title = "Mirko Caserta"
 description = "Personal website and blog"
 feed_filenames = ["rss.xml"]
 taxonomies = [
-    {name = "tags", paginate_by = 10},
-    {name = "categories", paginate_by = 10},
+    {name = "tags", paginate_by = 50},
+    {name = "categories", paginate_by = 50},
 ]
 
 [languages.it]
@@ -21,8 +21,8 @@ description = "Sito personale e blog"
 generate_feeds = true
 feed_filenames = ["rss.xml"]
 taxonomies = [
-    {name = "tags", paginate_by = 10},
-    {name = "categories", paginate_by = 10},
+    {name = "tags", paginate_by = 50},
+    {name = "categories", paginate_by = 50},
 ]
 
 [languages.es]
@@ -31,8 +31,8 @@ description = "Sitio web personal y blog"
 generate_feeds = true
 feed_filenames = ["rss.xml"]
 taxonomies = [
-    {name = "tags", paginate_by = 10},
-    {name = "categories", paginate_by = 10},
+    {name = "tags", paginate_by = 50},
+    {name = "categories", paginate_by = 50},
 ]
 
 [markdown]

@@ -20,52 +20,21 @@
     
     {%- if term.pages %}
     <section class="posts-section">
-        <div class="posts-grid">
+        <div class="post-row-list">
             {%- for post in term.pages %}
-            <article class="post-card">
+            <article class="post-row">
                 {%- if post.extra.featured_image %}
-                <div class="post-image">
-                    <img src="{{ get_url(path=post.extra.featured_image) }}" alt="{{ post.title }}" loading="lazy">
+                <img class="post-row-thumb" src="{{ get_url(path=post.extra.featured_image) }}" alt="" loading="lazy">
+                {%- endif %}
+                <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
+                <a href="{{ post.permalink }}" class="post-row-title">{{ post.title }}</a>
+                {%- if taxonomy.name == "tags" and post.taxonomies.categories %}
+                <div class="post-row-categories">
+                    {%- for category in post.taxonomies.categories %}
+                    <a href="/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
+                    {%- endfor %}
                 </div>
                 {%- endif %}
-
-                <div class="post-content">
-                    <h3 class="post-title">
-                        <a href="{{ post.permalink }}">{{ post.title }}</a>
-                    </h3>
-
-                    <div class="post-meta">
-                        <time datetime="{{ post.date }}">
-                            {{ post.date | date(format="%B %d, %Y") }}
-                        </time>
-
-                        {%- if taxonomy.name == "tags" and post.taxonomies.categories %}
-                        <div class="post-categories">
-                            {%- for category in post.taxonomies.categories %}
-                            <a href="/categories/{{ category | slugify }}/" class="category-link">
-                                {{ category }}
-                            </a>
-                            {%- endfor %}
-                        </div>
-                        {%- endif %}
-                    </div>
-
-                    {%- if post.summary %}
-                    <p class="post-summary">{{ post.summary }}</p>
-                    {%- elif post.description %}
-                    <p class="post-summary">{{ post.description }}</p>
-                    {%- endif %}
-
-                    {%- if taxonomy.name == "categories" and post.taxonomies.tags %}
-                    <div class="post-tags">
-                        {%- for tag in post.taxonomies.tags | slice(end=3) %}
-                        <a href="/tags/{{ tag | slugify }}/" class="tag-link">
-                            #{{ tag }}
-                        </a>
-                        {%- endfor %}
-                    </div>
-                    {%- endif %}
-                </div>
             </article>
             {%- endfor %}
         </div>

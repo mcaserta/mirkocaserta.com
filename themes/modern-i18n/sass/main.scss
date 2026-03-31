@@ -415,51 +415,66 @@ img {
   margin-bottom: var(--spacing-3xl);
 }
 
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
-}
-
-.posts-list {
+// Post row list (compact listing)
+.post-row-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl);
   margin-bottom: var(--spacing-2xl);
 }
 
-// Post cards
-.post-card, .post-preview {
-  background-color: var(--color-bg-secondary);
-  border-radius: var(--radius-lg);
+.post-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.post-row-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.post-row time {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.post-row-title {
+  flex: 1;
+  min-width: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-all);
-  
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--text-base);
+  transition: var(--transition-colors);
+
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    color: var(--color-accent);
   }
 }
 
-.post-image {
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-  }
+.post-row-categories {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-shrink: 0;
 }
 
-.post-content, .post-preview-content {
-  padding: var(--spacing-xl);
-}
-
-.post-title, .post-preview-title {
+// Post title (individual post pages)
+.post-title {
   margin-bottom: var(--spacing-sm);
 
   a {
@@ -1086,10 +1101,20 @@ img {
     font-size: var(--text-lg);
   }
   
-  // Grid adjustments
-  .posts-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+  // Compact row adjustments
+  .post-row {
+    flex-wrap: wrap;
+  }
+
+  .post-row-title {
+    white-space: normal;
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .post-row-categories {
+    order: 4;
+    flex-basis: 100%;
   }
   
   .post-navigation {
