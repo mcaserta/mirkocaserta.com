@@ -59,9 +59,6 @@
         <div class="post-row-list">
             {%- for post in blog_section.pages | slice(end=10) %}
             <article class="post-row">
-                {%- if post.extra.featured_image %}
-                <img class="post-row-thumb" src="{{ get_url(path=post.extra.featured_image) }}" alt="" loading="lazy">
-                {%- endif %}
                 <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
                 <a href="{{ post.permalink }}" class="post-row-title">{{ post.title }}</a>
                 {%- if post.taxonomies.categories %}
@@ -70,6 +67,9 @@
                     <a href="{{ lang_prefix }}/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
                     {%- endfor %}
                 </div>
+                {%- endif %}
+                {%- if post.description %}
+                <p class="post-row-description">{{ post.description }}</p>
                 {%- endif %}
             </article>
             {%- endfor %}
@@ -99,8 +99,11 @@
 
         <div class="post-row-list">
             {%- for page in pages_section.pages %}
-            <article class="post-row">
+            <article class="post-row post-row--no-date">
                 <a href="{{ page.permalink }}" class="post-row-title">{{ page.title }}</a>
+                {%- if page.description %}
+                <p class="post-row-description">{{ page.description }}</p>
+                {%- endif %}
             </article>
             {%- endfor %}
         </div>
