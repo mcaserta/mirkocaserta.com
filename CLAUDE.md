@@ -1,43 +1,50 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with
+code in this repository.
 
 ## Project Overview
 
-This is a personal website built with Zola, a fast static site generator written in Rust. The site is configured to be deployed to `https://mirkocaserta.com`.
+This is a personal website built with Zola, a fast static site generator written
+in Rust. The site is configured to be deployed to `https://mirkocaserta.com`.
 
 ## Development Commands
 
 **Build the site:**
+
 ```bash
 zola build
 ```
 
 **Serve locally with auto-reload:**
+
 ```bash
 zola serve
 ```
 
 **Check project without rendering (validates links):**
+
 ```bash
 zola check
 ```
 
 ## Project Structure
 
-This is a standard Zola static site with the following structure:
-
 - `config.toml` - Main configuration file with site settings
-- `content/` - Markdown content files and pages (currently empty)
-- `templates/` - Tera templates for rendering pages (currently empty)
-- `sass/` - Sass/SCSS stylesheets (currently empty)
-- `static/` - Static assets like images, fonts, etc. (currently empty)
+- `content/posts/` - Blog posts (Markdown)
+- `content/pages/` - Standalone pages (Markdown)
+- `themes/modern-i18n/templates/` - Tera templates
+- `themes/modern-i18n/sass/main.scss` - Styles
+- `themes/modern-i18n/static/js/theme.js` - Theme switching JS
+- `themes/modern-i18n/i18n/` - Translation files (en.toml, it.toml, es.toml)
+- `static/` - Static assets (images, downloads, etc.)
 
 ## Configuration
 
 The site is configured in `config.toml` with:
+
 - Sass compilation enabled
-- Search index building enabled  
+- Search index building enabled
 - Syntax highlighting enabled for code blocks
 - Base URL set to production domain
 
@@ -46,19 +53,24 @@ The site is configured in `config.toml` with:
 The site uses the "modern-i18n" theme with the following features:
 
 ### Internationalization
+
 - **Multilingual support** for English (default), Italian, and Spanish
 - Language switcher in the footer
 - Localized navigation labels and content
 - Separate language configurations in config.toml
 
-### Design & Typography  
+### Design & Typography
+
 - **Modern font stacks** based on modernfontstacks.com
-- Primary font: Classical Humanist (Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif)
-- Code font: Monospace Code (ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace)
+- Primary font: Classical Humanist (Optima, Candara, 'Noto Sans',
+  source-sans-pro, sans-serif)
+- Code font: Monospace Code (ui-monospace, 'Cascadia Code', 'Source Code Pro',
+  Menlo, Consolas, 'DejaVu Sans Mono', monospace)
 - **Dark/Light theme switching** with OS preference auto-detection
 - **Responsive design** optimized for all screen sizes
 
 ### Content Management
+
 - **Blog post listing** on homepage with recent posts
 - **Category and tag support** with dedicated archive pages
 - **Post navigation** between previous/next articles
@@ -70,79 +82,68 @@ The site uses the "modern-i18n" theme with the following features:
 - Templates are located in `themes/modern-i18n/templates/`
 - Styles are in `themes/modern-i18n/sass/main.scss`
 - JavaScript for theme switching in `themes/modern-i18n/static/js/theme.js`
-- Sample content created in `content/posts/` 
+- Sample content created in `content/posts/`
 - Taxonomies configured for categories and tags
 
 ## Important Development Guidelines
 
 ### Shell Command Usage
 
-**DO NOT use shell commands directly via Bash tool** like `find`, `grep`, `ls`, `cat`, `head`, `tail`, etc. Instead use Claude Code's internal tools:
+**DO NOT use shell commands directly via Bash tool** like `find`, `grep`, `ls`,
+`cat`, `head`, `tail`, etc. Instead use Claude Code's internal tools:
 
 - Use `Glob` instead of `find` to locate files
-- Use `Grep` instead of `grep` to search file contents  
+- Use `Grep` instead of `grep` to search file contents
 - Use `Read` instead of `cat`, `head`, `tail` to read files
-- Use `Bash` only for actual build/run commands like `zola build`, `zola serve`, etc.
+- Use `Bash` only for actual build/run commands like `zola build`, `zola serve`,
+  etc.
 
-### Internationalization (i18n) Implementation
+### Content Translations (MANDATORY)
 
-The theme is prepared for i18n but currently uses English-only strings for stability. To implement proper internationalization:
+**Every post and page MUST exist in all 3 languages: English (default), Italian,
+and Spanish.**
 
-#### 1. Translation Files
-Translation files are in the `themes/modern-i18n/i18n/` directory:
-- `en.toml` - English translations
-- `it.toml` - Italian translations  
-- `es.toml` - Spanish translations
+When creating or editing content, always produce all language variants:
 
-#### 2. Configuration Setup
-To enable i18n, uncomment and configure these lines in `config.toml`:
-```toml
-default_language = "en"
+```
+content/posts/
+  my-post.md       # English (default)
+  my-post.it.md    # Italian
+  my-post.es.md    # Spanish
 
-[languages.en]
-taxonomies = [
-    {name = "categories", paginate_by = 10},
-    {name = "tags", paginate_by = 10},
-]
-
-[languages.it]
-taxonomies = [
-    {name = "categories", paginate_by = 10},
-    {name = "tags", paginate_by = 10},
-]
-
-[languages.es]  
-taxonomies = [
-    {name = "categories", paginate_by = 10},
-    {name = "tags", paginate_by = 10},
-]
+content/pages/
+  my-page.md       # English (default)
+  my-page.it.md    # Italian
+  my-page.es.md    # Spanish
 ```
 
-#### 3. Template Usage
-Replace hardcoded English strings with `trans()` function calls:
-```html
-<!-- Instead of: -->
-<h1>Welcome to my website</h1>
+Each file must have its own frontmatter with a translated `title`,
+`description`, and body content. Categories and tags should also be translated
+where appropriate.
 
-<!-- Use: -->
-<h1>{{ trans(key="welcome_title", default="Welcome to my website") }}</h1>
-```
+When asked to write a new post or page, always create all 3 files. When editing
+an existing post or page, apply the change across all language variants.
 
-#### 4. Content Structure
-For multilingual content, create language-specific files:
-```
-content/
-  _index.md          # Default language
-  _index.it.md       # Italian version
-  _index.es.md       # Spanish version
-  posts/
-    welcome.md       # Default language
-    welcome.it.md    # Italian version  
-    welcome.es.md    # Spanish version
-```
+### Markdown Formatting (MANDATORY)
 
-#### 5. Testing i18n
-After enabling i18n configuration:
-1. Run `zola check` to validate configuration
-2. Run `zola build` to ensure all translations resolve
-3. Test language switching functionality
+After creating or modifying any `.md` file, **always format it** before
+considering the task done:
+
+1. **If `prettier` is available locally**, run:
+   ```bash
+   prettier --write path/to/file.md
+   ```
+2. **If `prettier` is not available**, format the file manually following the
+   rules in `.prettierrc`:
+   - `proseWrap: always` — wrap prose at the print width
+   - `printWidth: 80` — 80 characters per line
+   - `tabWidth: 2` — 2-space indentation
+   - `useTabs: false` — spaces only, no tabs
+
+### i18n Reference
+
+- Translation string files: `themes/modern-i18n/i18n/{en,it,es}.toml`
+- Template translation function:
+  `{{ trans(key="key_name", default="Fallback") }}`
+- Language config is in `config.toml` under `[languages.en]`, `[languages.it]`,
+  `[languages.es]`
