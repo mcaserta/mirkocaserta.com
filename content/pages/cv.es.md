@@ -2,6 +2,9 @@
 title = 'Curriculum Vitae'
 date = 2025-07-26T20:23:00Z
 description = 'Perfil profesional completo de Mirko Caserta, Desarrollador Senior y Arquitecto de Software con más de 30 años de experiencia en desarrollo de software empresarial, plataformas cloud y diversos stacks tecnológicos.'
+
+[extra]
+toc = true
 +++
 
 ## Resumen
