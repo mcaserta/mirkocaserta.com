@@ -20,20 +20,22 @@
     
     {%- if term.pages %}
     <section class="posts-section">
-        <div class="post-row-list">
+        <div class="post-card-grid">
             {%- for post in term.pages %}
-            <article class="post-row">
-                <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
-                <a href="{{ post.permalink }}" class="post-row-title">{{ post.title }}</a>
-                {%- if taxonomy.name == "tags" and post.taxonomies.categories %}
-                <div class="post-row-categories">
-                    {%- for category in post.taxonomies.categories %}
-                    <a href="/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
-                    {%- endfor %}
+            <article class="post-card">
+                <div class="post-card-header">
+                    {%- if taxonomy.name == "tags" and post.taxonomies.categories %}
+                    <div class="post-row-categories">
+                        {%- for category in post.taxonomies.categories %}
+                        <a href="/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
+                        {%- endfor %}
+                    </div>
+                    {%- endif %}
+                    <time class="post-card-date" datetime="{{ post.date }}">{{ post.date | date(format="%b %d") }}</time>
                 </div>
-                {%- endif %}
+                <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
                 {%- if post.description %}
-                <p class="post-row-description">{{ post.description }}</p>
+                <p class="post-card-excerpt">{{ post.description }}</p>
                 {%- endif %}
             </article>
             {%- endfor %}
