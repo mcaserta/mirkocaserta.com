@@ -653,6 +653,13 @@ img {
   font-weight: 400;
 }
 
+.post-description, .page-description {
+  font-family: var(--font-stack-body);
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
 .post-categories {
   display: flex;
   flex-wrap: wrap;
