@@ -519,91 +519,12 @@ img {
   margin-bottom: var(--spacing-3xl);
 }
 
-// Post row list (compact listing)
-.post-row-list {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: var(--spacing-2xl);
-}
-
-.post-row {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0 var(--spacing-md);
-  align-items: baseline;
-  padding: var(--spacing-lg) var(--spacing-md);
-  margin: 0 calc(-1 * var(--spacing-md));
-  border-radius: var(--radius-md);
-  transition: background-color 0.15s ease-in-out;
-
-  & + .post-row {
-    border-top: 1px solid color-mix(in srgb, var(--color-border-light) 60%, transparent);
-  }
-
-  &:hover {
-    background-color: var(--color-bg-secondary);
-  }
-}
-
-.post-row--no-date {
-  grid-template-columns: 1fr auto;
-
-  .post-row-title {
-    grid-column: 1;
-  }
-
-  .post-row-categories {
-    grid-column: 2;
-  }
-
-  .post-row-description {
-    grid-column: 1;
-  }
-}
-
-.post-row time {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.post-row-title {
-  grid-column: 2;
-  grid-row: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: var(--color-text-primary);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: var(--text-lg);
-  letter-spacing: -0.01em;
-  transition: var(--transition-colors);
-
-  &:hover {
-    color: var(--color-accent);
-  }
-}
-
 .post-row-categories {
   grid-column: 3;
   grid-row: 1;
   display: flex;
   gap: var(--spacing-xs);
   white-space: nowrap;
-}
-
-.post-row-description {
-  grid-column: 2;
-  grid-row: 2;
-  margin: var(--spacing-xs) 0 0;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: 1.5;
 }
 
 // Post title (individual post pages)
@@ -1235,33 +1156,6 @@ img {
   // Post cards single column on mobile
   .post-card-grid {
     grid-template-columns: 1fr;
-  }
-  
-  // Compact row adjustments
-  .post-row {
-    grid-template-columns: 1fr;
-    padding: var(--spacing-md) var(--spacing-sm);
-    margin: 0 calc(-1 * var(--spacing-sm));
-  }
-
-  .post-row time {
-    grid-column: 1;
-    font-size: var(--text-xs);
-  }
-
-  .post-row-title {
-    grid-column: 1;
-    white-space: normal;
-    font-size: var(--text-base);
-  }
-
-  .post-row-categories {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .post-row-description {
-    grid-column: 1;
   }
   
   .post-navigation {

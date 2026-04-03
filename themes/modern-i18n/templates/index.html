@@ -111,12 +111,12 @@
     <section class="posts-section">
         <h2 class="section-title">{{ lbl_pages }}</h2>
 
-        <div class="post-row-list">
+        <div class="post-card-grid">
             {%- for page in pages_section.pages %}
-            <article class="post-row post-row--no-date">
-                <a href="{{ page.permalink }}" class="post-row-title">{{ page.title }}</a>
+            <article class="post-card">
+                <a href="{{ page.permalink }}" class="post-card-title">{{ page.title }}</a>
                 {%- if page.description %}
-                <p class="post-row-description">{{ page.description }}</p>
+                <p class="post-card-excerpt">{{ page.description }}</p>
                 {%- endif %}
             </article>
             {%- endfor %}
