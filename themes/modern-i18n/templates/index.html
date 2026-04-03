@@ -28,21 +28,33 @@
 
 <div class="container">
     <section class="hero">
+        <div class="hero-text">
+            {%- if lang == "it" %}
+            <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
+            <p class="hero-description">Senior Developer e Software Architect con oltre 30 anni di esperienza in software enterprise, piattaforme cloud e open source.</p>
+            <div class="hero-links">
+                <a href="/it/pages/cv/" class="button button-primary">Curriculum Vitae</a>
+            </div>
+            {%- elif lang == "es" %}
+            <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
+            <p class="hero-description">Senior Developer y Arquitecto de Software con más de 30 años de experiencia en software empresarial, plataformas cloud y código abierto.</p>
+            <div class="hero-links">
+                <a href="/es/pages/cv/" class="button button-primary">Currículum Vítae</a>
+            </div>
+            {%- else %}
+            <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
+            <p class="hero-description">Senior Developer &amp; Software Architect with 30+ years of experience in enterprise software, cloud platforms, and open source.</p>
+            <div class="hero-links">
+                <a href="/pages/cv/" class="button button-primary">Curriculum Vitae</a>
+            </div>
+            {%- endif %}
+        </div>
         <div class="hero-portrait">
             <img src="/images/mirko.jpg" alt="Mirko Caserta">
         </div>
-        <h1 class="hero-title">Mirko Caserta</h1>
-        <p class="hero-description">{{ lbl_hero_desc }}</p>
-        <div class="hero-links">
-            {%- if lang == "it" %}
-            <a href="/it/pages/cv/" class="button button-secondary">Curriculum Vitae</a>
-            {%- elif lang == "es" %}
-            <a href="/es/pages/cv/" class="button button-secondary">Currículum Vítae</a>
-            {%- else %}
-            <a href="/pages/cv/" class="button button-secondary">Curriculum Vitae</a>
-            {%- endif %}
-        </div>
     </section>
+
+    <div class="hero-divider"></div>
 
     {%- if lang == "it" %}
         {%- set blog_section = get_section(path="posts/_index.it.md") %}
@@ -56,20 +68,22 @@
     <section class="posts-section">
         <h2 class="section-title">{{ lbl_recent_posts }}</h2>
 
-        <div class="post-row-list">
+        <div class="post-card-grid">
             {%- for post in blog_section.pages | slice(end=10) %}
-            <article class="post-row">
-                <time datetime="{{ post.date }}">{{ post.date | date(format="%Y-%m-%d") }}</time>
-                <a href="{{ post.permalink }}" class="post-row-title">{{ post.title }}</a>
-                {%- if post.taxonomies.categories %}
-                <div class="post-row-categories">
-                    {%- for category in post.taxonomies.categories %}
-                    <a href="{{ lang_prefix }}/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
-                    {%- endfor %}
+            <article class="post-card">
+                <div class="post-card-header">
+                    {%- if post.taxonomies.categories %}
+                    <div class="post-row-categories">
+                        {%- for category in post.taxonomies.categories %}
+                        <a href="{{ lang_prefix }}/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
+                        {%- endfor %}
+                    </div>
+                    {%- endif %}
+                    <time class="post-card-date" datetime="{{ post.date }}">{{ post.date | date(format="%b %d") }}</time>
                 </div>
-                {%- endif %}
+                <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
                 {%- if post.description %}
-                <p class="post-row-description">{{ post.description }}</p>
+                <p class="post-card-excerpt">{{ post.description }}</p>
                 {%- endif %}
             </article>
             {%- endfor %}
