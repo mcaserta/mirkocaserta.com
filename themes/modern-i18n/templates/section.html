@@ -19,7 +19,7 @@
                         {%- if post.taxonomies.categories %}
                         <div class="post-row-categories">
                             {%- for category in post.taxonomies.categories %}
-                            <a href="/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
+                            <a href="{{ get_taxonomy_url(kind='categories', name=category, lang=post.lang) }}" class="category-link">{{ category }}</a>
                             {%- endfor %}
                         </div>
                         {%- endif %}
@@ -57,7 +57,7 @@
                         {%- if post.taxonomies.categories %}
                         <div class="post-row-categories">
                             {%- for category in post.taxonomies.categories %}
-                            <a href="/categories/{{ category | slugify }}/" class="category-link">{{ category }}</a>
+                            <a href="{{ get_taxonomy_url(kind='categories', name=category, lang=post.lang) }}" class="category-link">{{ category }}</a>
                             {%- endfor %}
                         </div>
                         {%- endif %}
