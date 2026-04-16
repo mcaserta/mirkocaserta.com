@@ -39,7 +39,9 @@ taxonomies = [
 
 [markdown.highlighting]
 highlight_code = true
-theme = "dracula"
+style = "class"
+light_theme = "github-light"
+dark_theme = "github-dark"
 
 # Navigation menu items
 [[extra.menu.main]]
