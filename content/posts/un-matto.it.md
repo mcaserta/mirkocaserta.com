@@ -19,7 +19,7 @@ nella semplificazione. Ma anche nella profondità e nella complessità c'è un
 valore. Sintesi e analisi sono due facce di una stessa medaglia. Ma non volevo
 parlare di questo, volevo parlare del fatto che il matto è utilissimo. Un matto
 ti mostra delle realtà alternative, ti palesa delle possibilità intrise di una
-tale fantasia che uno sano di mente non riesce a non solo a vedere, ma nemmeno a
+tale fantasia che uno sano di mente non riesce non solo a vedere, ma nemmeno a
 concepire. Il matto vive la realtà con distacco e questo gli permette di avere
 una libertà di visione che ai presunti sani di mente manca. Non so a voi ma a me
 succede sempre di provare invidia quando riconosco un matto genuino perché
