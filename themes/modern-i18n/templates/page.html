@@ -41,7 +41,7 @@
             <a href="{{ parent.permalink }}" class="post-section-link">{{ parent.title }}</a>
             {%- endif %}
 
-            <h1 class="{% if is_post %}post{% else %}page{% endif %}-title">{{ page.title }}</h1>
+            <h1 class="{% if is_post %}post{% else %}page{% endif %}-title">{{ page.title | markdown(inline=true) | safe }}</h1>
 
             {%- if is_post %}
             <div class="post-meta">
@@ -81,7 +81,7 @@
         {%- if page.higher %}
         <a href="{{ page.higher.permalink }}" class="post-nav-item post-nav-prev">
             <span class="post-nav-label">← {{ t.newer_post }}</span>
-            <span class="post-nav-link">{{ page.higher.title }}</span>
+            <span class="post-nav-link">{{ page.higher.title | markdown(inline=true) | safe }}</span>
         </a>
         {%- else %}
         <span></span>
@@ -89,7 +89,7 @@
         {%- if page.lower %}
         <a href="{{ page.lower.permalink }}" class="post-nav-item post-nav-next">
             <span class="post-nav-label">{{ t.older_post }} →</span>
-            <span class="post-nav-link">{{ page.lower.title }}</span>
+            <span class="post-nav-link">{{ page.lower.title | markdown(inline=true) | safe }}</span>
         </a>
         {%- endif %}
     </nav>

@@ -26,7 +26,7 @@
                     {%- set label = item.name %}
                 {%- endif %}
                 {%- set active = here is starting_with(pat=item_path) %}
-                <li class="nav-item">
+                <li class="nav-item{% if item.url is starting_with(pat="/pages/") %} nav-item-page{% endif %}">
                     <a href="{{ get_url(path=item.url, lang=lang, trailing_slash=true) }}" class="nav-link{% if active %} active{% endif %}"{% if here == item_path %} aria-current="page"{% elif active %} aria-current="true"{% endif %}>
                         {{- label -}}
                     </a>

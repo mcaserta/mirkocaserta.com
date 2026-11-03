@@ -34,7 +34,7 @@
         <span class="post-card-reading">{{ post.reading_time }} {{ t.min_read }}</span>
         {%- endif %}
     </div>
-    <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
+    <a href="{{ post.permalink }}" class="post-card-title">{{ post.title | markdown(inline=true) | safe }}</a>
     {%- if post.description %}
     <p class="post-card-excerpt">{{ post.description }}</p>
     {%- endif %}
@@ -52,7 +52,7 @@
     </a>
     <div class="music-card-body">
         <span class="post-card-date">{{ <date d={post.date} t={t} short={true} /> }}</span>
-        <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
+        <a href="{{ post.permalink }}" class="post-card-title">{{ post.title | markdown(inline=true) | safe }}</a>
         {%- if post.description %}
         <p class="music-card-excerpt">{{ post.description }}</p>
         {%- endif %}
@@ -66,7 +66,7 @@
         <span class="word-feature-label">{{ label }}</span>
         <span class="word-feature-date">{{ <date d={post.date} t={t} /> }}</span>
     </div>
-    <a href="{{ post.permalink }}" class="word-feature-word">{{ post.title }}</a>
+    <a href="{{ post.permalink }}" class="word-feature-word">{{ post.title | markdown(inline=true) | safe }}</a>
     {%- if post.description %}
     <p class="word-feature-gloss">{{ post.description }}</p>
     {%- endif %}
@@ -75,7 +75,7 @@
 {#- One glossary line: word, gloss, small date. -#}
 {% component word_row(post, t) -%}
 <li class="word-row">
-    <a href="{{ post.permalink }}" class="word-row-word">{{ post.title }}</a>
+    <a href="{{ post.permalink }}" class="word-row-word">{{ post.title | markdown(inline=true) | safe }}</a>
     {%- if post.description %}
     <span class="word-row-gloss">{{ post.description }}</span>
     {%- endif %}

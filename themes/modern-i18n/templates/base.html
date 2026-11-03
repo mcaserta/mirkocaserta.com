@@ -2,10 +2,11 @@
 <html lang="{{ lang | default(value="en") }}" data-theme="auto">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>
-        {%- if page is defined and page.title %}{{ page.title }} | {{ config.title }}
+        {%- if page is defined and page.title %}{{ page.title | replace(from="`", to="") }} | {{ config.title }}
         {%- elif section is defined and section.title %}{{ section.title }} | {{ config.title }}
         {%- else %}{{ config.title }}
         {%- endif -%}
@@ -80,6 +81,20 @@
                     <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a>.
                     {{ foot_t.license_suffix }}
                 </p>
+                {%- set feed_prefix = "" %}
+                {%- if lang != config.default_language %}{%- set feed_prefix = lang ~ "/" %}{%- endif %}
+                <ul class="footer-links">
+                    {%- for s in ["music", "tech", "words", "misc"] %}
+                    <li><a href="{{ get_url(path=feed_prefix ~ s ~ '/rss.xml', trailing_slash=false) }}">{{ foot_t[s] }} RSS</a></li>
+                    {%- endfor %}
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="https://mastodon.online/@mcaserta" rel="me noopener">Mastodon</a></li>
+                    <li><a href="https://mirkocaserta.bandcamp.com" rel="noopener">Bandcamp</a></li>
+                    <li><a href="https://open.spotify.com/artist/0jv0oWHiTvLG9PetrnX5PO" rel="noopener">Spotify</a></li>
+                    <li><a href="https://youtube.com/@mirkocaserta" rel="noopener">YouTube</a></li>
+                    <li><a href="https://github.com/mcaserta" rel="noopener">GitHub</a></li>
+                </ul>
             </div>
         </footer>
     </div>
