@@ -31,7 +31,7 @@ zola check
 ## Project Structure
 
 - `config.toml` - Main configuration file with site settings
-- `content/posts/` - Blog posts (Markdown)
+- `content/{music,tech,words,misc}/` - Posts, one section per topic (Markdown)
 - `content/pages/` - Standalone pages (Markdown)
 - `themes/modern-i18n/templates/` - Tera templates
 - `themes/modern-i18n/sass/main.scss` - Styles
@@ -82,8 +82,9 @@ The site uses the "modern-i18n" theme with the following features:
 - Templates are located in `themes/modern-i18n/templates/`
 - Styles are in `themes/modern-i18n/sass/main.scss`
 - JavaScript for theme switching in `themes/modern-i18n/static/js/theme.js`
-- Sample content created in `content/posts/`
-- Taxonomies configured for categories and tags
+- Posts live in the topic sections `content/music/`, `content/tech/`,
+  `content/words/`, `content/misc/`
+- Taxonomies configured for tags only (topic is the section, not a category)
 
 ## Important Development Guidelines
 
@@ -106,7 +107,7 @@ and Spanish.**
 When creating or editing content, always produce all language variants:
 
 ```
-content/posts/
+content/<section>/   # music, tech, words or misc
   my-post.md       # English (default)
   my-post.it.md    # Italian
   my-post.es.md    # Spanish

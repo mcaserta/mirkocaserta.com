@@ -1,127 +1,77 @@
+{#- Homepage: hero, one lane per section with its three most recent posts,
+    then the latest word of the day. -#}
 {% extends "base.html" %}
 
 {% block content %}
-{%- set lang_prefix = "" %}
-{%- if lang and lang != config.default_language %}
-    {%- set lang_prefix = "/" ~ lang %}
-{%- endif %}
-
-{%- if lang == "it" %}
-    {%- set lbl_recent_posts = "Articoli recenti" %}
-    {%- set lbl_view_all = "Vedi tutti gli articoli" %}
-    {%- set lbl_no_posts = "Nessun articolo ancora pubblicato. Torna presto!" %}
-    {%- set lbl_hero_desc = "Senior Developer e Software Architect con oltre 30 anni di esperienza in software enterprise, piattaforme cloud e open source." %}
-    {%- set lbl_pages = "Pagine" %}
-{%- elif lang == "es" %}
-    {%- set lbl_recent_posts = "Artículos recientes" %}
-    {%- set lbl_view_all = "Ver todos los artículos" %}
-    {%- set lbl_no_posts = "Aún no se han publicado artículos. ¡Vuelve pronto!" %}
-    {%- set lbl_hero_desc = "Senior Developer y Arquitecto de Software con más de 30 años de experiencia en software empresarial, plataformas cloud y código abierto." %}
-    {%- set lbl_pages = "Páginas" %}
+{%- set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+{%- if lang == config.default_language %}
+    {%- set suffix = "" %}
 {%- else %}
-    {%- set lbl_recent_posts = "Recent Blog Posts" %}
-    {%- set lbl_view_all = "View all posts" %}
-    {%- set lbl_no_posts = "No posts published yet. Check back soon!" %}
-    {%- set lbl_hero_desc = "Senior Developer & Software Architect with 30 years of experience in enterprise software, cloud platforms, and open source." %}
-    {%- set lbl_pages = "Pages" %}
+    {%- set suffix = "." ~ lang %}
 {%- endif %}
 
 <div class="container">
     <section class="hero">
         <div class="hero-text">
-            {%- if lang == "it" %}
             <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
-            <p class="hero-description">Senior Developer e Software Architect con oltre 30 anni di esperienza in software enterprise, piattaforme cloud e open source.</p>
+            <p class="hero-description">{{ t.hero_description }}</p>
             <div class="hero-links">
-                <a href="/it/pages/cv/" class="button button-primary">Curriculum Vitae</a>
+                <a href="{{ get_url(path='@/pages/cv.md', lang=lang) }}" class="button button-primary">{{ t.cv }}</a>
             </div>
-            {%- elif lang == "es" %}
-            <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
-            <p class="hero-description">Senior Developer y Arquitecto de Software con más de 30 años de experiencia en software empresarial, plataformas cloud y código abierto.</p>
-            <div class="hero-links">
-                <a href="/es/pages/cv/" class="button button-primary">Currículum Vítae</a>
-            </div>
-            {%- else %}
-            <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
-            <p class="hero-description">Senior Developer &amp; Software Architect with 30+ years of experience in enterprise software, cloud platforms, and open source.</p>
-            <div class="hero-links">
-                <a href="/pages/cv/" class="button button-primary">Curriculum Vitae</a>
-            </div>
-            {%- endif %}
         </div>
         <div class="hero-portrait">
-            <img src="/images/mirko.jpg" alt="Mirko Caserta">
+            <img src="{{ get_url(path='images/mirko.jpg') }}" alt="Mirko Caserta">
         </div>
     </section>
 
     <div class="hero-divider"></div>
 
-    {%- if lang == "it" %}
-        {%- set blog_section = get_section(path="posts/_index.it.md") %}
-    {%- elif lang == "es" %}
-        {%- set blog_section = get_section(path="posts/_index.es.md") %}
-    {%- else %}
-        {%- set blog_section = get_section(path="posts/_index.md") %}
-    {%- endif %}
-
-    {%- if blog_section and blog_section.pages %}
-    <section class="posts-section">
-        <h2 class="section-title">{{ lbl_recent_posts }}</h2>
-
-        <div class="post-card-grid">
-            {%- for post in blog_section.pages[:10] %}
-            <article class="post-card">
-                <div class="post-card-header">
-                    {%- if post.taxonomies.categories %}
-                    <div class="post-row-categories">
-                        {%- for category in post.taxonomies.categories %}
-                        <a href="{{ get_taxonomy_url(kind='categories', name=category, lang=post.lang) }}" class="category-link">{{ category }}</a>
-                        {%- endfor %}
-                    </div>
-                    {%- endif %}
-                    <time class="post-card-date" datetime="{{ post.date }}">{{ post.date | date(format="%b %d") }}</time>
-                </div>
-                <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
-                {%- if post.description %}
-                <p class="post-card-excerpt">{{ post.description }}</p>
-                {%- endif %}
-            </article>
+    {#- One lane per section -#}
+    {%- for name in ["music", "tech", "misc"] %}
+    {%- set lane = get_section(path=name ~ "/_index" ~ suffix ~ ".md") %}
+    {%- if lane.pages %}
+    <section class="lane lane-{{ name }}">
+        <div class="lane-header">
+            <h2 class="lane-title"><a href="{{ lane.permalink }}">{{ lane.title }}</a></h2>
+            <a href="{{ lane.permalink }}" class="lane-more">{{ t.more }} →</a>
+        </div>
+        {%- if name == "music" %}
+        <div class="music-grid lane-grid">
+            {%- for post in lane.pages[:3] %}
+            {{ <music_card post={post} t={t} /> }}
             {%- endfor %}
         </div>
-
-        <div class="posts-more">
-            <a href="{{ lang_prefix }}/posts/" class="button button-primary">{{ lbl_view_all }}</a>
-        </div>
-    </section>
-    {%- else %}
-    <section class="empty-state">
-        <p class="empty-message">{{ lbl_no_posts }}</p>
-    </section>
-    {%- endif %}
-
-    {%- if lang == "it" %}
-        {%- set pages_section = get_section(path="pages/_index.it.md") %}
-    {%- elif lang == "es" %}
-        {%- set pages_section = get_section(path="pages/_index.es.md") %}
-    {%- else %}
-        {%- set pages_section = get_section(path="pages/_index.md") %}
-    {%- endif %}
-
-    {%- if pages_section and pages_section.pages %}
-    <section class="posts-section">
-        <h2 class="section-title">{{ lbl_pages }}</h2>
-
-        <div class="post-card-grid">
-            {%- for page in pages_section.pages %}
-            <article class="post-card">
-                <a href="{{ page.permalink }}" class="post-card-title">{{ page.title }}</a>
-                {%- if page.description %}
-                <p class="post-card-excerpt">{{ page.description }}</p>
-                {%- endif %}
-            </article>
+        {%- else %}
+        <div class="post-card-grid lane-grid">
+            {%- for post in lane.pages[:3] %}
+            {{ <post_card post={post} t={t} /> }}
             {%- endfor %}
         </div>
+        {%- endif %}
     </section>
     {%- endif %}
+    {%- endfor %}
+
+    {#- Word of the day -#}
+    {%- set words = get_section(path="words/_index" ~ suffix ~ ".md") %}
+    {%- if words.pages %}
+    <section class="lane lane-words">
+        {{ <word_feature post={words.pages[0]} t={t} label={t.latest_word} /> }}
+        {%- if words.pages | length > 1 %}
+        <div class="lane-words-earlier">
+            <div class="lane-header">
+                <h2 class="lane-title">{{ t.earlier_words }}</h2>
+                <a href="{{ words.permalink }}" class="lane-more">{{ t.more }} →</a>
+            </div>
+            <ul class="word-list word-list-compact">
+                {%- for post in words.pages[1:4] %}
+                {{ <word_row post={post} t={t} /> }}
+                {%- endfor %}
+            </ul>
+        </div>
+        {%- endif %}
+    </section>
+    {%- endif %}
+
 </div>
 {% endblock content %}

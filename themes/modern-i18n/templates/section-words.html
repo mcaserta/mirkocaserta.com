@@ -1,0 +1,47 @@
+{#- Word of the day: the latest word featured, the rest as a glossary. -#}
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="{{ section.title }}" href="{{ section.permalink }}rss.xml">
+{% endblock extra_head %}
+
+{% block content %}
+{%- set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+{%- set first_pager = true %}
+{%- if paginator is defined and paginator %}
+    {%- set posts = paginator.pages %}
+    {%- set first_pager = paginator.current_index == 1 %}
+{%- else %}
+    {%- set posts = section.pages %}
+{%- endif %}
+<div class="container">
+    {{ <section_header section={section} t={t} /> }}
+
+    {%- if posts %}
+    <section class="words">
+        {%- if first_pager %}
+        {{ <word_feature post={posts[0]} t={t} label={t.latest_word} /> }}
+        {%- set rest = posts[1:] %}
+        {%- else %}
+        {%- set rest = posts %}
+        {%- endif %}
+
+        {%- if rest %}
+        <ul class="word-list">
+            {%- for post in rest %}
+            {{ <word_row post={post} t={t} /> }}
+            {%- endfor %}
+        </ul>
+        {%- endif %}
+
+        {%- if paginator is defined and paginator %}
+        {{ <pagination paginator={paginator} t={t} /> }}
+        {%- endif %}
+    </section>
+    {%- else %}
+    <section class="empty-state">
+        <p class="empty-message">{{ t.no_posts_found }}</p>
+    </section>
+    {%- endif %}
+</div>
+{% endblock content %}

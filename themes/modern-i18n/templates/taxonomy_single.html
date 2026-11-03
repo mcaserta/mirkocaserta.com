@@ -1,73 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
+{%- set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+{%- if paginator is defined and paginator %}
+    {%- set posts = paginator.pages %}
+{%- else %}
+    {%- set posts = term.pages %}
+{%- endif %}
+{%- set count = term.pages | length %}
 <div class="container">
     <header class="section-header">
-        <h1 class="section-title">
-            {%- if taxonomy.name == "categories" %}Blog posts in "{{ term.name }}"
-            {%- elif taxonomy.name == "tags" %}Blog posts tagged "{{ term.name }}"
-            {%- else %}{{ term.name | title }}
-            {%- endif -%}
-        </h1>
-        
+        <h1 class="section-title">{{ t.posts_with_tag | replace(from="{name}", to=term.name) }}</h1>
         <p class="section-description">
-            {{ term.pages | length }}
-            {%- if term.pages | length == 1 %} post found
-            {%- else %} posts found
+            {%- if count == 1 %}{{ t.post_found | replace(from="{count}", to=count ~ "") }}
+            {%- else %}{{ t.posts_found | replace(from="{count}", to=count ~ "") }}
             {%- endif -%}
         </p>
     </header>
-    
-    {%- if term.pages %}
+
+    {%- if posts %}
     <section class="posts-section">
         <div class="post-card-grid">
-            {%- for post in term.pages %}
-            <article class="post-card">
-                <div class="post-card-header">
-                    {%- if taxonomy.name == "tags" and post.taxonomies.categories %}
-                    <div class="post-row-categories">
-                        {%- for category in post.taxonomies.categories %}
-                        <a href="{{ get_taxonomy_url(kind='categories', name=category, lang=post.lang) }}" class="category-link">{{ category }}</a>
-                        {%- endfor %}
-                    </div>
-                    {%- endif %}
-                    <time class="post-card-date" datetime="{{ post.date }}">{{ post.date | date(format="%b %d") }}</time>
-                </div>
-                <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
-                {%- if post.description %}
-                <p class="post-card-excerpt">{{ post.description }}</p>
-                {%- endif %}
-            </article>
+            {%- for post in posts %}
+            {{ <post_card post={post} t={t} /> }}
             {%- endfor %}
         </div>
+        {%- if paginator is defined and paginator %}
+        {{ <pagination paginator={paginator} t={t} /> }}
+        {%- endif %}
     </section>
-    
-    {%- if paginator %}
-    <nav class="pagination">
-        {%- if paginator.previous %}
-        <a href="{{ paginator.previous }}" class="pagination-link pagination-prev">{% if lang == "it" %}← Articoli più recenti{% elif lang == "es" %}← Artículos más recientes{% else %}← Newer posts{% endif %}</a>
-        {%- endif %}
-
-        <span class="pagination-info">{% if lang == "it" %}Pagina{% elif lang == "es" %}Página{% else %}Page{% endif %} {{ paginator.current_index }} {% if lang == "it" or lang == "es" %}de{% else %}of{% endif %} {{ paginator.number_pagers }}</span>
-
-        {%- if paginator.next %}
-        <a href="{{ paginator.next }}" class="pagination-link pagination-next">{% if lang == "it" %}Articoli più vecchi →{% elif lang == "es" %}Artículos más antiguos →{% else %}Older posts →{% endif %}</a>
-        {%- endif %}
-    </nav>
-    {%- endif %}
-    
     {%- else %}
     <div class="empty-state">
-        <p class="empty-message">No posts found.</p>
+        <p class="empty-message">{{ t.no_posts_found }}</p>
     </div>
     {%- endif %}
-    
+
     <div class="section-nav">
-        <a href="/{{ taxonomy.name }}/" class="button button-secondary">
-            {%- if taxonomy.name == "categories" %}← All categories
-            {%- elif taxonomy.name == "tags" %}← All tags
-            {%- endif -%}
-        </a>
+        <a href="{{ get_url(path='/tags/', lang=lang) }}" class="button button-secondary">{{ t.all_tags }}</a>
     </div>
 </div>
 {% endblock content %}

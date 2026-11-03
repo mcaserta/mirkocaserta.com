@@ -1,0 +1,35 @@
+{#- Music: album style cards with cover art. -#}
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="{{ section.title }}" href="{{ section.permalink }}rss.xml">
+{% endblock extra_head %}
+
+{% block content %}
+{%- set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+{%- if paginator is defined and paginator %}
+    {%- set posts = paginator.pages %}
+{%- else %}
+    {%- set posts = section.pages %}
+{%- endif %}
+<div class="container">
+    {{ <section_header section={section} t={t} /> }}
+
+    {%- if posts %}
+    <section class="posts-section">
+        <div class="music-grid">
+            {%- for post in posts %}
+            {{ <music_card post={post} t={t} /> }}
+            {%- endfor %}
+        </div>
+        {%- if paginator is defined and paginator %}
+        {{ <pagination paginator={paginator} t={t} /> }}
+        {%- endif %}
+    </section>
+    {%- else %}
+    <section class="empty-state">
+        <p class="empty-message">{{ t.no_posts_found }}</p>
+    </section>
+    {%- endif %}
+</div>
+{% endblock content %}

@@ -12,7 +12,6 @@ description = "Personal website and blog"
 feed_filenames = ["rss.xml"]
 taxonomies = [
     {name = "tags", paginate_by = 50},
-    {name = "categories", paginate_by = 50},
 ]
 
 [languages.it]
@@ -22,7 +21,6 @@ generate_feeds = true
 feed_filenames = ["rss.xml"]
 taxonomies = [
     {name = "tags", paginate_by = 50},
-    {name = "categories", paginate_by = 50},
 ]
 
 [languages.es]
@@ -32,7 +30,6 @@ generate_feeds = true
 feed_filenames = ["rss.xml"]
 taxonomies = [
     {name = "tags", paginate_by = 50},
-    {name = "categories", paginate_by = 50},
 ]
 
 [markdown]
@@ -44,24 +41,39 @@ dark_theme = "github-dark"
 
 # Navigation menu items
 [[extra.menu.main]]
-name = "Posts"
-key = "posts"
-url = "/posts/"
+name = "Music"
+key = "music"
+url = "/music/"
 
 [[extra.menu.main]]
-name = "Pages"
-key = "pages"
-url = "/pages/"
+name = "Tech"
+key = "tech"
+url = "/tech/"
 
 [[extra.menu.main]]
-name = "Categories"
-key = "categories"
-url = "/categories/"
+name = "Words"
+key = "words"
+url = "/words/"
 
 [[extra.menu.main]]
-name = "Tags"
-key = "tags"
-url = "/tags/"
+name = "Misc"
+key = "misc"
+url = "/misc/"
+
+[[extra.menu.main]]
+name = "About"
+key = "about"
+url = "/pages/about/"
+
+[[extra.menu.main]]
+name = "CV"
+key = "nav_cv"
+url = "/pages/cv/"
+
+[[extra.menu.main]]
+name = "Contacts"
+key = "contacts"
+url = "/pages/contacts/"
 
 [extra]
 license = "CC BY 4.0"

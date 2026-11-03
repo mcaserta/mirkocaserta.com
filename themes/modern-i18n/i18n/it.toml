@@ -1,46 +1,63 @@
 # Italian translations
+#
+# Loaded by the templates with:
+#   {% set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+# and used as {{ t.key }}. Every key must exist in all three files.
+
+# Dates (locale and UTS-35 patterns for the date filter)
+date_locale = "it"
+date_long = "d MMMM y"
+date_short = "d MMM y"
 
 # Navigation
 home = "Home"
-posts = "Articoli"
+music = "Musica"
+tech = "Tech"
+words = "Parole"
+misc = "Varie"
+about = "Chi sono"
 pages = "Pagine"
-categories = "Categorie"
+nav_cv = "CV"
+contacts = "Contatti"
 tags = "Tag"
+toggle_theme = "Cambia tema"
+toggle_menu = "Apri o chiudi il menu"
 
 # Homepage
-welcome_title = "Benvenuto nel mio sito web"
-welcome_description = "Sito web personale e blog"
 hero_description = "Senior Developer e Software Architect con oltre 30 anni di esperienza in software enterprise, piattaforme cloud e open source."
-recent_posts = "Articoli recenti"
-view_all_posts = "Vedi tutti gli articoli"
-no_posts_yet = "Nessun articolo ancora pubblicato. Torna presto!"
+cv = "Curriculum Vitae"
+latest_word = "La parola del giorno"
+earlier_words = "Parole precedenti"
+more = "Altro"
+no_posts_yet = "Ancora niente qui. Torna presto."
+
+# Sections
+subscribe = "Feed RSS"
+no_posts_found = "Nessun articolo trovato."
 
 # Post metadata
 min_read = "min di lettura"
 updated = "Aggiornato il"
-reading_time = "min di lettura"
+toc = "Indice"
+tags_label = "Tag:"
 
-# Post navigation
-previous_post = "Articolo precedente"
-next_post = "Prossimo articolo"
+# Post navigation (within the section)
+newer_post = "Più recente"
+older_post = "Meno recente"
 
-# Pagination
+# Pagination ({current} and {total} are replaced)
 page_of = "Pagina {current} di {total}"
 newer_posts = "← Articoli più recenti"
-older_posts = "Articoli più vecchi →"
+older_posts = "Articoli meno recenti →"
 
-# Taxonomy
-explore_by_category = "Esplora gli articoli per categoria"
+# Taxonomy ({name} and {count} are replaced)
 explore_by_tag = "Esplora gli articoli per tag"
-posts_in_category = "Articoli in \"{name}\""
 posts_with_tag = "Articoli con tag \"{name}\""
 post_found = "{count} articolo trovato"
 posts_found = "{count} articoli trovati"
-no_categories_found = "Nessuna categoria trovata."
 no_tags_found = "Nessun tag trovato."
-no_posts_found = "Nessun articolo trovato."
-all_categories = "← Tutte le categorie"
 all_tags = "← Tutti i tag"
 
 # Footer
-all_rights_reserved = "Tutti i diritti riservati."
+license_prefix = "Contenuto rilasciato sotto licenza"
+license_suffix = "Sei libero di usare, condividere e adattare questo contenuto con attribuzione."

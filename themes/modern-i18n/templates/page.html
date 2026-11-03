@@ -1,74 +1,98 @@
+{#- Single page template, used for both standalone pages (about, cv) and dated
+    posts in the music, tech, words and misc sections. Posts get a link back to
+    their section and newer/older navigation within it. -#}
 {% extends "base.html" %}
 
 {% block content %}
+{%- set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+{#- Standalone pages live under pages/ and keep the plain layout even if dated. -#}
+{%- set is_post = page.date is defined and page.date and not "pages" in page.components %}
+{%- set parent = false %}
+{%- if is_post and page.ancestors | length > 1 %}
+    {%- set parent = get_section(path=page.ancestors | last, metadata_only=true) %}
+{%- endif %}
+{%- set has_toc = page.extra.toc is defined and page.extra.toc %}
 <div class="container">
-    {%- if page.extra.toc %}
+    {%- if has_toc %}
     <aside class="toc-sidebar">
         <div class="toc-sidebar-content">
-            <h2 class="toc-title">Table of Contents</h2>
+            <h2 class="toc-title">{{ t.toc }}</h2>
             <ul>
-            {% for h1 in page.toc %}
+            {%- for h1 in page.toc %}
                 <li>
                     <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-                    {% if h1.children %}
-                        <ul>
-                            {% for h2 in h1.children %}
-                                <li>
-                                    <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
+                    {%- if h1.children %}
+                    <ul>
+                        {%- for h2 in h1.children %}
+                        <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a></li>
+                        {%- endfor %}
+                    </ul>
+                    {%- endif %}
                 </li>
-            {% endfor %}
+            {%- endfor %}
             </ul>
         </div>
     </aside>
     {%- endif %}
 
-    <article class="page {%- if page.extra.toc %} page-with-toc{%- endif %}">
-        <header class="page-header">
-            <h1 class="page-title">{{ page.title }}</h1>
-
-            {%- if page.description %}
-            <p class="page-description">{{ page.description }}</p>
+    <article class="{% if is_post %}post{% else %}page{% endif %}{% if has_toc %} {% if is_post %}post{% else %}page{% endif %}-with-toc{% endif %}">
+        <header class="{% if is_post %}post{% else %}page{% endif %}-header">
+            {%- if parent %}
+            <a href="{{ parent.permalink }}" class="post-section-link">{{ parent.title }}</a>
             {%- endif %}
 
-            {%- if page.date %}
-            <div class="page-meta">
-                <time datetime="{{ page.date }}">
-                    {%- if lang == "it" %}
-                        {{ page.date | date(format="%d %B %Y") }}
-                    {%- elif lang == "es" %}
-                        {{ page.date | date(format="%d de %B de %Y") }}
-                    {%- else %}
-                        {{ page.date | date(format="%B %d, %Y") }}
-                    {%- endif -%}
-                </time>
+            <h1 class="{% if is_post %}post{% else %}page{% endif %}-title">{{ page.title }}</h1>
 
-                {%- if page.updated %}
-                <span class="page-updated"> • Updated {{ page.updated | date(format="%B %d, %Y") }}</span>
+            {%- if is_post %}
+            <div class="post-meta">
+                {{ <date d={page.date} t={t} /> }}
+                {%- if page.updated is defined and page.updated %}
+                <span class="post-updated">{{ t.updated }} {{ page.updated | date(format=t.date_long, locale=t.date_locale) }}</span>
+                {%- endif %}
+                {%- if page.reading_time %}
+                <span class="reading-time">{{ page.reading_time }} {{ t.min_read }}</span>
                 {%- endif %}
             </div>
             {%- endif %}
+
+            {%- if page.description %}
+            <p class="{% if is_post %}post{% else %}page{% endif %}-description">{{ page.description }}</p>
+            {%- endif %}
         </header>
 
-        <div class="page-content">
+        <div class="{% if is_post %}post{% else %}page{% endif %}-content">
             {{ page.content | safe }}
         </div>
 
-        {%- if page.taxonomies.tags %}
-        <footer class="page-footer">
-            <div class="page-tags">
-                <span class="tags-label">Tags:</span>
+        {%- if page.taxonomies.tags is defined and page.taxonomies.tags %}
+        <footer class="post-footer">
+            <div class="post-tags">
+                <span class="tags-label">{{ t.tags_label }}</span>
                 {%- for tag in page.taxonomies.tags %}
-                <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}" class="tag-link">
-                    #{{ tag }}
-                </a>
+                <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}" class="tag-link">#{{ tag }}</a>
                 {%- endfor %}
             </div>
         </footer>
         {%- endif %}
     </article>
+
+    {%- if is_post and (page.higher or page.lower) %}
+    <nav class="post-navigation{% if has_toc %} post-navigation-with-toc{% endif %}">
+        {%- if page.higher %}
+        <a href="{{ page.higher.permalink }}" class="post-nav-item post-nav-prev">
+            <span class="post-nav-label">← {{ t.newer_post }}</span>
+            <span class="post-nav-link">{{ page.higher.title }}</span>
+        </a>
+        {%- else %}
+        <span></span>
+        {%- endif %}
+        {%- if page.lower %}
+        <a href="{{ page.lower.permalink }}" class="post-nav-item post-nav-next">
+            <span class="post-nav-label">{{ t.older_post }} →</span>
+            <span class="post-nav-link">{{ page.lower.title }}</span>
+        </a>
+        {%- endif %}
+    </nav>
+    {%- endif %}
 </div>
 {% endblock content %}

@@ -1,3 +1,4 @@
+{%- set nav_t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
@@ -7,16 +8,27 @@
         </div>
 
         <div class="navbar-menu">
-            {%- if config.extra.menu.main %}
+            {%- if config.extra.menu.main is defined and config.extra.menu.main %}
             {%- set lang_prefix = "" %}
-            {%- if lang and lang != config.default_language %}
+            {%- if lang != config.default_language %}
                 {%- set lang_prefix = "/" ~ lang %}
+            {%- endif %}
+            {%- set here = "" %}
+            {%- if current_path is defined and current_path %}
+                {%- set here = current_path %}
             {%- endif %}
             <ul class="navbar-nav">
                 {%- for item in config.extra.menu.main %}
+                {%- set item_path = lang_prefix ~ item.url %}
+                {%- if item.key is defined and item.key in nav_t %}
+                    {%- set label = nav_t[item.key] %}
+                {%- else %}
+                    {%- set label = item.name %}
+                {%- endif %}
+                {%- set active = here is starting_with(pat=item_path) %}
                 <li class="nav-item">
-                    <a href="{{ lang_prefix }}{{ item.url }}" class="nav-link">
-                        {{ item.name }}
+                    <a href="{{ get_url(path=item.url, lang=lang, trailing_slash=true) }}" class="nav-link{% if active %} active{% endif %}"{% if here == item_path %} aria-current="page"{% elif active %} aria-current="true"{% endif %}>
+                        {{- label -}}
                     </a>
                 </li>
                 {%- endfor %}
@@ -26,7 +38,7 @@
             <!-- Theme and language controls -->
             <div class="navbar-controls">
                 <!-- Theme toggle -->
-                <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <button class="theme-toggle" aria-label="{{ nav_t.toggle_theme }}" title="{{ nav_t.toggle_theme }}">
                     <span class="theme-icon theme-icon-light">☀️</span>
                     <span class="theme-icon theme-icon-dark">🌙</span>
                 </button>
@@ -69,12 +81,13 @@
                 </div>
             </div>
 
-            <!-- Mobile menu toggle -->
-            <button class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span class="navbar-toggle-bar"></span>
-                <span class="navbar-toggle-bar"></span>
-                <span class="navbar-toggle-bar"></span>
-            </button>
         </div>
+
+        <!-- Mobile menu toggle -->
+        <button class="navbar-toggle" aria-label="{{ nav_t.toggle_menu }}" aria-expanded="false">
+            <span class="navbar-toggle-bar"></span>
+            <span class="navbar-toggle-bar"></span>
+            <span class="navbar-toggle-bar"></span>
+        </button>
     </div>
 </nav>

@@ -1,0 +1,100 @@
+{#- Shared Tera 2 components for listings. Components are global, so templates
+    call them directly, e.g. {{ <post_card post={post} t={t} /> }}. Every one
+    takes the i18n table `t` (themes/modern-i18n/i18n/<lang>.toml) explicitly,
+    because components do not see the caller's context. -#}
+
+{% component date(d, t, short=false) -%}
+<time datetime="{{ d }}">
+    {%- if short -%}
+    {{ d | date(format=t.date_short, locale=t.date_locale) }}
+    {%- else -%}
+    {{ d | date(format=t.date_long, locale=t.date_locale) }}
+    {%- endif -%}
+</time>{%- endcomponent date %}
+
+{#- Section title, description and RSS link. -#}
+{% component section_header(section, t) -%}
+<header class="section-header">
+    <h1 class="section-title">{{ section.title }}</h1>
+    {%- if section.description %}
+    <p class="section-description">{{ section.description }}</p>
+    {%- endif %}
+    <a class="feed-link" href="{{ section.permalink }}rss.xml" type="application/rss+xml">
+        <svg class="feed-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6V3Zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7V9Zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/></svg>
+        {{ t.subscribe }}
+    </a>
+</header>{%- endcomponent section_header %}
+
+{#- Dated card with reading time, used by tech, misc, tags and the homepage. -#}
+{% component post_card(post, t) -%}
+<article class="post-card">
+    <div class="post-card-header">
+        <span class="post-card-date">{{ <date d={post.date} t={t} short={true} /> }}</span>
+        {%- if post.reading_time %}
+        <span class="post-card-reading">{{ post.reading_time }} {{ t.min_read }}</span>
+        {%- endif %}
+    </div>
+    <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
+    {%- if post.description %}
+    <p class="post-card-excerpt">{{ post.description }}</p>
+    {%- endif %}
+</article>{%- endcomponent post_card %}
+
+{#- Album style card for music posts; falls back to a typographic tile. -#}
+{% component music_card(post, t) -%}
+<article class="music-card">
+    <a href="{{ post.permalink }}" class="music-card-cover" tabindex="-1" aria-hidden="true">
+        {%- if post.extra.cover is defined and post.extra.cover %}
+        <img src="{{ get_url(path=post.extra.cover) }}" alt="" loading="lazy" decoding="async">
+        {%- else %}
+        <span class="music-card-placeholder">{{ post.title | truncate(length=1, end="") }}</span>
+        {%- endif %}
+    </a>
+    <div class="music-card-body">
+        <span class="post-card-date">{{ <date d={post.date} t={t} short={true} /> }}</span>
+        <a href="{{ post.permalink }}" class="post-card-title">{{ post.title }}</a>
+        {%- if post.description %}
+        <p class="music-card-excerpt">{{ post.description }}</p>
+        {%- endif %}
+    </div>
+</article>{%- endcomponent music_card %}
+
+{#- Large card for the most recent word of the day. -#}
+{% component word_feature(post, t, label) -%}
+<article class="word-feature">
+    <div class="word-feature-meta">
+        <span class="word-feature-label">{{ label }}</span>
+        <span class="word-feature-date">{{ <date d={post.date} t={t} /> }}</span>
+    </div>
+    <a href="{{ post.permalink }}" class="word-feature-word">{{ post.title }}</a>
+    {%- if post.description %}
+    <p class="word-feature-gloss">{{ post.description }}</p>
+    {%- endif %}
+</article>{%- endcomponent word_feature %}
+
+{#- One glossary line: word, gloss, small date. -#}
+{% component word_row(post, t) -%}
+<li class="word-row">
+    <a href="{{ post.permalink }}" class="word-row-word">{{ post.title }}</a>
+    {%- if post.description %}
+    <span class="word-row-gloss">{{ post.description }}</span>
+    {%- endif %}
+    <span class="word-row-date">{{ <date d={post.date} t={t} short={true} /> }}</span>
+</li>{%- endcomponent word_row %}
+
+{% component pagination(paginator, t) -%}
+{%- if paginator.number_pagers > 1 %}
+<nav class="pagination">
+    {%- if paginator.previous %}
+    <a href="{{ paginator.previous }}" class="pagination-link pagination-prev">{{ t.newer_posts }}</a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+    <span class="pagination-info">{{ t.page_of | replace(from="{current}", to=paginator.current_index ~ "") | replace(from="{total}", to=paginator.number_pagers ~ "") }}</span>
+    {%- if paginator.next %}
+    <a href="{{ paginator.next }}" class="pagination-link pagination-next">{{ t.older_posts }}</a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+</nav>
+{%- endif %}{%- endcomponent pagination %}

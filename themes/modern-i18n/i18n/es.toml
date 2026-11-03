@@ -1,46 +1,63 @@
 # Spanish translations
+#
+# Loaded by the templates with:
+#   {% set t = load_data(path="themes/modern-i18n/i18n/" ~ lang ~ ".toml") %}
+# and used as {{ t.key }}. Every key must exist in all three files.
+
+# Dates (locale and UTS-35 patterns for the date filter)
+date_locale = "es"
+date_long = "d 'de' MMMM 'de' y"
+date_short = "d MMM y"
 
 # Navigation
 home = "Inicio"
-posts = "Artículos"
+music = "Música"
+tech = "Tecnología"
+words = "Palabras"
+misc = "Varios"
+about = "Sobre mí"
 pages = "Páginas"
-categories = "Categorías"
+nav_cv = "CV"
+contacts = "Contactos"
 tags = "Etiquetas"
+toggle_theme = "Cambiar tema"
+toggle_menu = "Abrir o cerrar el menú"
 
 # Homepage
-welcome_title = "Bienvenido a mi sitio web"
-welcome_description = "Sitio web personal y blog"
 hero_description = "Senior Developer y Arquitecto de Software con más de 30 años de experiencia en software empresarial, plataformas cloud y código abierto."
-recent_posts = "Artículos recientes"
-view_all_posts = "Ver todos los artículos"
-no_posts_yet = "Aún no se han publicado artículos. ¡Vuelve pronto!"
+cv = "Currículum Vítae"
+latest_word = "La palabra del día"
+earlier_words = "Palabras anteriores"
+more = "Más"
+no_posts_yet = "Todavía no hay nada aquí. Vuelve pronto."
+
+# Sections
+subscribe = "Feed RSS"
+no_posts_found = "No se encontraron artículos."
 
 # Post metadata
 min_read = "min de lectura"
 updated = "Actualizado el"
-reading_time = "min de lectura"
+toc = "Índice"
+tags_label = "Etiquetas:"
 
-# Post navigation
-previous_post = "Artículo anterior"
-next_post = "Siguiente artículo"
+# Post navigation (within the section)
+newer_post = "Más reciente"
+older_post = "Más antiguo"
 
-# Pagination
+# Pagination ({current} and {total} are replaced)
 page_of = "Página {current} de {total}"
 newer_posts = "← Artículos más recientes"
 older_posts = "Artículos más antiguos →"
 
-# Taxonomy
-explore_by_category = "Explora artículos por categoría"
+# Taxonomy ({name} and {count} are replaced)
 explore_by_tag = "Explora artículos por etiqueta"
-posts_in_category = "Artículos en \"{name}\""
 posts_with_tag = "Artículos con etiqueta \"{name}\""
 post_found = "{count} artículo encontrado"
 posts_found = "{count} artículos encontrados"
-no_categories_found = "No se encontraron categorías."
 no_tags_found = "No se encontraron etiquetas."
-no_posts_found = "No se encontraron artículos."
-all_categories = "← Todas las categorías"
 all_tags = "← Todas las etiquetas"
 
 # Footer
-all_rights_reserved = "Todos los derechos reservados."
+license_prefix = "Contenido bajo licencia"
+license_suffix = "Puedes usar, compartir y adaptar este contenido con atribución."
