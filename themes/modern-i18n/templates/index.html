@@ -69,7 +69,7 @@
         <h2 class="section-title">{{ lbl_recent_posts }}</h2>
 
         <div class="post-card-grid">
-            {%- for post in blog_section.pages | slice(end=10) %}
+            {%- for post in blog_section.pages[:10] %}
             <article class="post-card">
                 <div class="post-card-header">
                     {%- if post.taxonomies.categories %}

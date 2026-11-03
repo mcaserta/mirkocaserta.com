@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>
-        {%- if page.title %}{{ page.title }} | {{ config.title }}
-        {%- elif section.title %}{{ section.title }} | {{ config.title }}
+        {%- if page is defined and page.title %}{{ page.title }} | {{ config.title }}
+        {%- elif section is defined and section.title %}{{ section.title }} | {{ config.title }}
         {%- else %}{{ config.title }}
         {%- endif -%}
     </title>
     
-    {%- if page.description %}
+    {%- if page is defined and page.description %}
     <meta name="description" content="{{ page.description }}">
-    {%- elif section.description %}
+    {%- elif section is defined and section.description %}
     <meta name="description" content="{{ section.description }}">
     {%- elif config.description %}
     <meta name="description" content="{{ config.description }}">
