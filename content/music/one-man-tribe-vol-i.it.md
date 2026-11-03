@@ -18,9 +18,9 @@ Questo album esiste per colpa di un valzer.
 
 In [Songs](@/music/songs.it.md) c'è "Vals Para Amparo", un brano che ho dedicato
 alla mia compagna Amparo. Lì scrivevo che è un valzer in tonalità minore, cosa
-che con lei c'entra poco: Amparo è calda, piena di soul, solare. Il brano non è
-niente di tutto questo. Mi ero ripromesso di rimediare con qualcosa di più
-latino. Una salsa, un mambo, chissà.
+che con lei c'entra poco: Amparo è tutta sole e ritmo. Nel brano non c'è niente
+di tutto questo. Mi ero ripromesso di rimediare con qualcosa di più latino. Una
+salsa, un mambo, chissà.
 
 Poi lei mi ha detto che, di tutto quello che ho registrato, il pezzo che le
 piace di più è

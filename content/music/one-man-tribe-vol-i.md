@@ -18,9 +18,9 @@ This album exists because of a waltz.
 
 On [Songs](@/music/songs.md) there is "Vals Para Amparo", a tune I dedicated to
 my partner Amparo. Back then I wrote that it was a waltz in a minor key, which
-doesn't really suit her: Amparo is warm, soulful, solar. The song is none of
-those things. I promised myself I'd fix it with something more Latin. A salsa, a
-mambo, maybe.
+doesn't really suit her: Amparo is all sunshine and rhythm. The song has none of
+that. I promised myself I'd fix it with something more Latin. A salsa, a mambo,
+maybe.
 
 Then she told me that, of everything I've recorded, the one she enjoys the most
 is

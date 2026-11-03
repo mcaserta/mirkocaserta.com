@@ -18,9 +18,9 @@ Este álbum existe por culpa de un vals.
 
 En [Songs](@/music/songs.es.md) está "Vals Para Amparo", un tema que le dediqué
 a mi pareja Amparo. Ahí escribí que es un vals en tonalidad menor, algo que no
-encaja mucho con ella: Amparo es cálida, llena de soul, solar. El tema no es
-nada de eso. Me había prometido arreglarlo con algo más latino. Una salsa, un
-mambo, quién sabe.
+encaja mucho con ella: Amparo es puro sol y ritmo. En el tema no hay nada de
+eso. Me había prometido arreglarlo con algo más latino. Una salsa, un mambo,
+quién sabe.
 
 Luego ella me dijo que, de todo lo que he grabado, lo que más le gusta es
 [Punk Jazz Overdrive](https://mirkocaserta.bandcamp.com/track/punk-jazz-overdrive),
