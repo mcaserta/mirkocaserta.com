@@ -13,11 +13,8 @@
 <div class="container">
     <section class="hero">
         <div class="hero-text">
-            <h1 class="hero-headline">Developer,<br>Architect,<br><span class="hero-headline-accent">Builder.</span></h1>
+            <h1 class="hero-headline">{{ t.hero_line1 }}<br>{{ t.hero_line2 }}<br><span class="hero-headline-accent">{{ t.hero_accent }}</span></h1>
             <p class="hero-description">{{ t.hero_description }}</p>
-            <div class="hero-links">
-                <a href="{{ get_url(path='@/pages/cv.md', lang=lang) }}" class="button button-primary">{{ t.cv }}</a>
-            </div>
         </div>
         <div class="hero-portrait">
             <img src="{{ get_url(path='images/mirko.jpg') }}" alt="Mirko Caserta">

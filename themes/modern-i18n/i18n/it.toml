@@ -24,7 +24,10 @@ toggle_theme = "Cambia tema"
 toggle_menu = "Apri o chiudi il menu"
 
 # Homepage
-hero_description = "Senior Developer e Software Architect con oltre 30 anni di esperienza in software enterprise, piattaforme cloud e open source."
+hero_line1 = "Codice,"
+hero_line2 = "musica,"
+hero_accent = "parole."
+hero_description = "Faccio software da più di 30 anni. Faccio anche dischi, colleziono parole e scrivo di quello che non mi lascia in pace."
 cv = "Curriculum Vitae"
 latest_word = "La parola del giorno"
 earlier_words = "Parole precedenti"
