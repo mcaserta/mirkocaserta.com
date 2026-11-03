@@ -1740,3 +1740,22 @@ img {
     color: var(--color-text-muted);
   }
 }
+
+// Footer links elsewhere, with brand marks (Simple Icons, CC0)
+.footer-social .social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  text-decoration: none;
+
+  .social-icon {
+    flex: none;
+    transition: var(--transition-colors);
+  }
+
+  &:hover { text-decoration: none; }
+  &.social-bandcamp:hover .social-icon { color: #408294; }
+  &.social-spotify:hover .social-icon { color: #1db954; }
+  &.social-youtube:hover .social-icon { color: #ff0000; }
+  &.social-github:hover .social-icon { color: var(--color-text-primary); }
+}
