@@ -368,6 +368,8 @@ img {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+  border-left: 1px solid var(--color-border);
   
   // Ensure controls are visible and properly aligned
   .theme-toggle {
@@ -1520,6 +1522,10 @@ img {
     flex-direction: column;
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
+    padding-left: 0;
+    border-left: none;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
   }
   
   // Typography adjustments
@@ -1709,4 +1715,28 @@ img {
 .post-card-title code,
 .post-nav-link code {
   font-size: 0.85em;
+}
+
+// "RSS: Music · Tech · Words · Misc"
+.footer-feeds {
+  gap: var(--spacing-xs) 0;
+
+  .footer-feeds-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    margin-right: 0.5em;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+
+    .feed-icon {
+      color: var(--color-brand);
+    }
+  }
+
+  li:not(.footer-feeds-label) + li::before {
+    content: "·";
+    margin: 0 0.6em;
+    color: var(--color-text-muted);
+  }
 }

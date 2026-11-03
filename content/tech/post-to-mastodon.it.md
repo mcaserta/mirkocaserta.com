@@ -9,11 +9,11 @@ tags = ["mastodon", "curl", "sviluppo del software"]
 
 A causa dei recenti problemi di Twitter dovuti a
 [Space Karen](https://knowyourmeme.com/memes/space-karen), mi sono fatto un
-[account Mastodon](https://mastodon.online/@mcaserta) e devo dire che, finora,
-l'esperienza è stata estremamente positiva, probabilmente perché la maggior
-parte delle persone che seguo sono nerd educati che si preoccupano di mantenere
-un buon karma. Se anche tu hai voglia di unirti, dai un'occhiata a
-[Join Mastodon](https://joinmastodon.org/) e guarda tu stesso.
+account Mastodon e devo dire che, finora, l'esperienza è stata estremamente
+positiva, probabilmente perché la maggior parte delle persone che seguo sono
+nerd educati che si preoccupano di mantenere un buon karma. Se anche tu hai
+voglia di unirti, dai un'occhiata a [Join Mastodon](https://joinmastodon.org/) e
+guarda tu stesso.
 
 Comunque, mi sono trovato abbastanza presto nella necessità di automatizzare i
 miei post. Ho un [canale telegram](https://t.me/mirkolovesmusic) dove posto

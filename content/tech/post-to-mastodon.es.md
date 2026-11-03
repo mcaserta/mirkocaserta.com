@@ -9,10 +9,10 @@ tags = ["mastodon", "curl", "desarrollo de software"]
 
 Debido a los recientes problemas de Twitter causados por
 [Space Karen](https://knowyourmeme.com/memes/space-karen), me he creado una
-[cuenta de Mastodon](https://mastodon.online/@mcaserta) y debo decir que, hasta
-ahora, la experiencia ha sido extremadamente positiva, probablemente porque la
-mayoría de las personas que sigo son nerds educados que se preocupan por
-compartir buenas vibras. Si también tienes ganas de unirte, echa un vistazo a
+cuenta de Mastodon y debo decir que, hasta ahora, la experiencia ha sido
+extremadamente positiva, probablemente porque la mayoría de las personas que
+sigo son nerds educados que se preocupan por compartir buenas vibras. Si también
+tienes ganas de unirte, echa un vistazo a
 [Join Mastodon](https://joinmastodon.org/) y compruébalo tú mismo.
 
 De todos modos, me encontré bastante pronto con la necesidad de automatizar mis

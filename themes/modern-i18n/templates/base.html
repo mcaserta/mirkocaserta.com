@@ -83,13 +83,13 @@
                 </p>
                 {%- set feed_prefix = "" %}
                 {%- if lang != config.default_language %}{%- set feed_prefix = lang ~ "/" %}{%- endif %}
-                <ul class="footer-links">
+                <ul class="footer-links footer-feeds">
+                    <li class="footer-feeds-label"><svg class="feed-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3a16 16 0 0 1 16 16h-3A13 13 0 0 0 5 6V3Zm0 6a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7V9Zm2 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/></svg>RSS:</li>
                     {%- for s in ["music", "tech", "words", "misc"] %}
-                    <li><a href="{{ get_url(path=feed_prefix ~ s ~ '/rss.xml', trailing_slash=false) }}">{{ foot_t[s] }} RSS</a></li>
+                    <li><a href="{{ get_url(path=feed_prefix ~ s ~ '/rss.xml', trailing_slash=false) }}" aria-label="{{ foot_t[s] }} RSS">{{ foot_t[s] }}</a></li>
                     {%- endfor %}
                 </ul>
                 <ul class="footer-links">
-                    <li><a href="https://mastodon.online/@mcaserta" rel="me noopener">Mastodon</a></li>
                     <li><a href="https://mirkocaserta.bandcamp.com" rel="noopener">Bandcamp</a></li>
                     <li><a href="https://open.spotify.com/artist/0jv0oWHiTvLG9PetrnX5PO" rel="noopener">Spotify</a></li>
                     <li><a href="https://youtube.com/@mirkocaserta" rel="noopener">YouTube</a></li>

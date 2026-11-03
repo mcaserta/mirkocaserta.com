@@ -9,11 +9,10 @@ tags = ["mastodon", "curl", "software development"]
 
 Since the latest Twitter issues due to
 [Space Karen](https://knowyourmeme.com/memes/space-karen), I've got myself a
-[Mastodon account](https://mastodon.online/@mcaserta) and I must say that, so
-far, the experience has been extremely positive, possibly because most of the
-people I follow are well-behaved nerds who care about sharing good vibes. If you
-also feel like joining, please take a look at
-[Join Mastodon](https://joinmastodon.org/) and see for yourself.
+Mastodon account and I must say that, so far, the experience has been extremely
+positive, possibly because most of the people I follow are well-behaved nerds
+who care about sharing good vibes. If you also feel like joining, please take a
+look at [Join Mastodon](https://joinmastodon.org/) and see for yourself.
 
 Anyway, I found myself pretty soon in the need to automate my posts. I have a
 [telegram channel](https://t.me/mirkolovesmusic) where I post music I like, and
