@@ -5,7 +5,12 @@ description = "An imaginary and humorous dialogue with Miles Davis exploring mus
 aliases = ["/posts/kind-of-non-floating-duck/"]
 [taxonomies]
 tags = ['music', 'jazz']
+
+[extra]
+cover = "/images/posts/kind-of-non-floating-duck-cover.jpg"
 +++
+
+![Miles Davis and me at a jazz club in the afterlife](/images/posts/kind-of-non-floating-duck-cover.jpg)
 
 "In the beginning was the word."
 

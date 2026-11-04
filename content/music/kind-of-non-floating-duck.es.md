@@ -5,7 +5,12 @@ description = "Un diálogo imaginario y humorístico con Miles Davis que explora
 aliases = ["/es/posts/kind-of-non-floating-duck/"]
 [taxonomies]
 tags = ['música', 'jazz']
+
+[extra]
+cover = "/images/posts/kind-of-non-floating-duck-cover.jpg"
 +++
+
+![Miles Davis y yo en un club de jazz del más allá](/images/posts/kind-of-non-floating-duck-cover.jpg)
 
 «Al principio era el verbo.»
 
