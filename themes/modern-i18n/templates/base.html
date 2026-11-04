@@ -34,7 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="main.css", cachebust=true) }}">
     
     <!-- Theme detection and setting script (must be in head to prevent FOUC) -->
     <script>
@@ -99,8 +99,8 @@
         </footer>
     </div>
     
-    <script src="{{ get_url(path="js/theme.js") }}"></script>
-    <script src="{{ get_url(path="js/main.js") }}"></script>
+    <script src="{{ get_url(path="js/theme.js", cachebust=true) }}"></script>
+    <script src="{{ get_url(path="js/main.js", cachebust=true) }}"></script>
     {%- block extra_scripts %}{% endblock extra_scripts %}
 </body>
 </html>
