@@ -15,3 +15,7 @@ $RECYCLE.BIN/
 
 # MuseScore
 static/music/scores/.mscbackup/
+
+# Cloudflare CLI local state
+.cloudflare/
+.wrangler/
