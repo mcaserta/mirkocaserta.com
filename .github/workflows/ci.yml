@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: true
+
+      - name: Read pinned Zola version
+        id: zola
+        run: echo "version=$(cat .zola-version)" >> "$GITHUB_OUTPUT"
+
+      - name: Install Zola
+        env:
+          ZOLA_VERSION: ${{ steps.zola.outputs.version }}
+        run: |
+          set -euo pipefail
+          VERSION="v${ZOLA_VERSION}"
+          URL="https://github.com/getzola/zola/releases/download/${VERSION}/zola-${VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+          curl -fsSL "$URL" -o /tmp/zola.tar.gz
+          sudo tar -xzf /tmp/zola.tar.gz -C /usr/local/bin
+          zola --version
+
+      - name: Zola check
+        run: zola check --skip-external-links
+
+      - name: Zola build
+        run: zola build
+
+      - name: Upload public/ artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: public
+          path: public
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Download public/ artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: public
+          path: public
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=mirkocaserta --branch=main --commit-dirty=true
