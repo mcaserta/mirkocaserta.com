@@ -71,9 +71,7 @@ El álbum ya está disponible en
 [Bandcamp](https://mirkocaserta.bandcamp.com/album/one-man-tribe-vol-i).
 Spotify, Apple Music, YouTube y el resto llegan el viernes 6 de noviembre.
 
-<!-- TODO: añadir los enlaces de Spotify, Apple Music y YouTube cuando estén online -->
-
 - [bandcamp](https://mirkocaserta.bandcamp.com/album/one-man-tribe-vol-i)
-- spotify: TBD
-- apple music: TBD
-- youtube: TBD
+- [spotify](https://open.spotify.com/album/7CB7ROXhewjptof69wBm5v)
+- [apple music](https://music.apple.com/us/album/one-man-tribe-vol-i/6829759393)
+- [youtube](https://www.youtube.com/playlist?list=OLAK5uy_kbscU5vlSlIj3wNna9Zrr0OpIiN6wJfm0)
