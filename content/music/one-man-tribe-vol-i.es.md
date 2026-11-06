@@ -67,9 +67,7 @@ Se llama Vol. I porque podría haber un Vol. II. Sin promesas.
 
 ## Escucha el álbum
 
-El álbum ya está disponible en
-[Bandcamp](https://mirkocaserta.bandcamp.com/album/one-man-tribe-vol-i).
-Spotify, Apple Music, YouTube y el resto llegan el viernes 6 de noviembre.
+El álbum ya está disponible en todas partes:
 
 - [bandcamp](https://mirkocaserta.bandcamp.com/album/one-man-tribe-vol-i)
 - [spotify](https://open.spotify.com/album/7CB7ROXhewjptof69wBm5v)

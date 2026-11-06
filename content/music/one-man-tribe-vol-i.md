@@ -67,9 +67,7 @@ It's called Vol. I because there might be a Vol. II. No promises.
 
 ## Listen to the album
 
-The album is out now on
-[Bandcamp](https://mirkocaserta.bandcamp.com/album/one-man-tribe-vol-i).
-Spotify, Apple Music, YouTube and the rest follow on Friday, November 6.
+The album is out now everywhere:
 
 - [bandcamp](https://mirkocaserta.bandcamp.com/album/one-man-tribe-vol-i)
 - [spotify](https://open.spotify.com/album/7CB7ROXhewjptof69wBm5v)
