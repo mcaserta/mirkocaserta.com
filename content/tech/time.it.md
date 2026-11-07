@@ -394,6 +394,7 @@ Ecco alcuni link utili che ho accumulato nel tempo:
 - [How England Colonized Time](https://youtu.be/mkVxJVgO1QY)
 - [Cheatsheet & Examples: date](https://tech.mrleong.net/cheatsheet-examples-date)
 - [timekeep.cc](https://www.timekeep.cc/)
+- [Chi ha deciso il tempo?](https://www.youtube.com/watch?v=_xDx1sVrHuE)
 
 ## Meme
 
