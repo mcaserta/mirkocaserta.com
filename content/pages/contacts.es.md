@@ -4,7 +4,7 @@ date = 2025-09-10T20:22:00Z
 description = 'Ponte en contacto con Mirko Caserta a través de varios canales, incluidos correo electrónico, GitHub, Telegram, YouTube, Instagram, Spotify y BandCamp.'
 +++
 
-- [Email](mailto:mirko.caserta@gmail.com)
+- [Email](mailto:info@mirkocaserta.com)
 - [GitHub](https://github.com/mcaserta)
 - [Telegram](https://t.me/mirkocaserta)
 - [YouTube](https://youtube.com/@mirkocaserta)
