@@ -2,7 +2,9 @@
 <html lang="{{ lang | default(value="en") }}" data-theme="auto">
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ get_url(path='favicon.ico') }}" sizes="any">
+    <link rel="icon" href="{{ get_url(path='favicon-32x32.png') }}" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ get_url(path='apple-touch-icon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>
